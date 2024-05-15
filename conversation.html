@@ -10,11 +10,18 @@
         #greenDiv {
             background-color: green;
             height: 100px;
+            min-width: 200px;
+            flex-grow: 1;
         }
 
         #redDiv {
             background-color: red;
             height: 100px;
+            flex-grow: 9;
+        }
+
+        .container .row {
+            display: flex;
         }
     </style>
 </head>
@@ -22,10 +29,10 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-6" id="greenDiv">
+        <div id="greenDiv">
             <button class="btn btn-success" id="greenButton">Green Button</button>
         </div>
-        <div class="col-6" id="redDiv">
+        <div id="redDiv">
             <button class="btn btn-danger" id="redButton">Red Button</button>
         </div>
     </div>
