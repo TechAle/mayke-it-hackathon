@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <style>
+        #greenDiv {
+            background-color: green;
+            height: 100px;
+        }
+
+        #redDiv {
+            background-color: red;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-6" id="greenDiv">
+            <button class="btn btn-success" id="greenButton">Green Button</button>
+        </div>
+        <div class="col-6" id="redDiv">
+            <button class="btn btn-danger" id="redButton">Red Button</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $("#greenButton").click(function() {
+            if (window.matchMedia("(max-width: 575px)").matches) {
+                $("#greenDiv").hide();
+                $("#redDiv").show();
+            }
+        });
+
+        $("#redButton").click(function() {
+            if (window.matchMedia("(max-width: 575px)").matches) {
+                $("#redDiv").hide();
+                $("#greenDiv").show();
+            }
+        });
+    });
+
+    let isSmall = false;
+    window.addEventListener('resize', function() {
+        if (window.matchMedia("(max-width: 575px)").matches) {
+            if (isSmall) {
+                return;
+            }
+            $("#redDiv").hide();
+            isSmall = true
+        } else {
+            if (!isSmall) {
+                return;
+            }
+            $("#redDiv").show();
+            $("#greenDiv").show();
+            isSmall = false
+        }
+    });
+    if (window.matchMedia("(max-width: 575px)").matches) {
+        $("#redDiv").hide();
+        isSmall = true
+    }
+</script>
+
+</body>
+</html>
