@@ -7,7 +7,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="scripts/listConversations.js"></script>
+    <script src="scripts/conversations/listConversations.js"></script>
 
     <style>
         #greenDiv {
@@ -253,50 +253,33 @@
 </div>
 
 
-<script src="scripts/resize.js"></script>
-<script src="scripts/pictures.js"></script>
-<script src="scripts/conversationManager.js"></script>
+<script src="scripts/display/resize.js"></script>
+<script src="scripts/display/pictures.js"></script>
+<script src="scripts/effectManager.js"></script>
+<script src="scripts/conversations/conversationManager.js"></script>
 <script>
 
-    $(document).ready(function () {
-        $(".chatSelector").click(function () {
-            changeConversation($(this).attr('id'))
-            if (window.matchMedia("(max-width: 575px)").matches) {
-                showConversation()
-            }
-        });
-
-        $("#back").click(function () {
-            if (window.matchMedia("(max-width: 575px)").matches) {
-                showChatSelection()
-            }
-        });
-        changeHeaderPadding()
-        loadConversations()
-    });
-
-    $('#arrow').click(() => {
-        newMessage($('#selectInput').val(), false)
-        sendMessage($('#selectInput').val())
-    });
-
-    function sendMessage(message) {
-        const currentChatOptions = conversations[currentChat]["messages"][message]
-        newMessage(currentChatOptions["text"], true)
-        const options = currentChatOptions["options"]
-        console.log(options)
-        $("#selectInput").empty()
-        options.forEach(option => {
-            $("#selectInput").append(`<option value="${option}">${option}</option>`)
-        })
-
-    }
-
-    let currentChat = null
-    function changeConversation(id) {
-        $("#chat").empty()
-        currentChat = id
-        sendMessage("firstMessage")
+    skills = {
+        "intelligence": {
+            "lvl": 0,
+            "xp": 0
+        },
+        "strength": {
+            "lvl": 0,
+            "xp": 0
+        },
+        "agility": {
+            "lvl": 0,
+            "xp": 0
+        },
+        "charisma": {
+            "lvl": 0,
+            "xp": 0
+        },
+        "dexterity": {
+            "lvl": 0,
+            "xp": 0
+        }
     }
 
 
