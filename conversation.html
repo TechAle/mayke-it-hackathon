@@ -67,38 +67,41 @@
             width: 60px;
         }
 
+        .image-text-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .image-text-container img {
+            margin-right: 10px;
+        }
+
+        #greenDiv > div {
+            margin-left: 0;
+        }
+
     </style>
 </head>
 <body>
 <div class="container-fluid maxHeight">
     <div class="row maxHeight" id="mainBody">
         <div class="container conversations" id="greenDiv">
-            <!--<button class="btn btn-success" id="greenButton">Green Button</button>-->
             <div class="row chatSelector" id="diary">
-                <div class="col-4">
-                    <img src="images/home/techale.png" alt="Image description" class=" rounded-circle">
-                </div>
-                <div class="col-8">
-                    Name1<br>
-                    Message
+                <div class="image-text-container">
+                    <img src="images/home/techale.png" alt="Description of image" class="rounded-circle">
+                    Name<br>Message
                 </div>
             </div>
             <div class="row chatSelector" id="techale">
-                <div class="col-4">
-                    <img src="images/home/techale.png" alt="Image description" class=" rounded-circle">
-                </div>
-                <div class="col-8">
-                    Name2<br>
-                    Message
+                <div class="image-text-container">
+                    <img src="images/home/techale.png" alt="Description of image" class="rounded-circle">
+                    Name<br>Message
                 </div>
             </div>
             <div class="row chatSelector" id="fox">
-                <div class="col-4">
-                    <img src="images/home/techale.png" alt="Image description" class=" rounded-circle">
-                </div>
-                <div class="col-8">
-                    Name3<br>
-                    Message
+                <div class="image-text-container">
+                    <img src="images/home/techale.png" alt="Description of image" class="rounded-circle">
+                    Name<br>Message
                 </div>
             </div>
         </div>
