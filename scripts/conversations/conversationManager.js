@@ -83,12 +83,14 @@ function sendMessage(message) {
     manageEffects(currentChatOptions["effect"])
 }
 
+let status = ""
 function changeConversation(id) {
     $("#chat").empty()
     currentChat = id
     sendMessage("firstMessage")
     $("#pfp").attr("src", "images/conversation/" + conversations[id]["icon"])
     $("#StatusUser").text(conversations[id]["description"])
+    status = conversations[id]["description"]
     $("#NameUser").text(id)
 }
 

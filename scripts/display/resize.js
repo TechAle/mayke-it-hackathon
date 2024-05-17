@@ -1,6 +1,15 @@
 let isSmall = false;
 
 $(window).resize(function() {
+
+    const status = $("#StatusUser")
+    const lenStatus = status.width()
+    const lenDiv = $("#StatusDiv").width()
+
+    if (lenStatus > lenDiv - 50) {
+        status.text(status.text().substring(0, status.text().length - 5 ) + "..")
+    }
+
     if (window.matchMedia("(max-width: 575px)").matches) {
         if (isSmall) {
             return;
@@ -13,12 +22,13 @@ $(window).resize(function() {
         }
         onBig()
     }
+
 });
 
 function changeHeaderPadding() {
-    var goBackSectionWidth = $('#goBackSection').width();
+    /*var goBackSectionWidth = $('#goBackSection').width();
     $('#nameSection').css('padding-right', goBackSectionWidth + 'px')
-                     .css('width', "calc(100% + " + goBackSectionWidth + "px");
+                     .css('width', "calc(100% + " + goBackSectionWidth + "px");*/
 }
 
 function onSmall() {

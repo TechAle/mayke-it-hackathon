@@ -1,6 +1,6 @@
 const conversations = {
     "diary" : {
-        "description" : "A diary of the user's daily activities",
+        "description" : "A diary of the user's daily activitiesfsadljbkahjflsdlfjkbadslbfasdlb",
         "icon" : "diary.png",
         "default": true,
         "messages": {
