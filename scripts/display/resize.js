@@ -17,7 +17,8 @@ $(window).resize(function() {
 
 function changeHeaderPadding() {
     var goBackSectionWidth = $('#goBackSection').width();
-    $('#nameSection').css('padding-right', goBackSectionWidth + 'px');
+    $('#nameSection').css('padding-right', goBackSectionWidth + 'px')
+                     .css('width', "calc(100% + " + goBackSectionWidth + "px");
 }
 
 function onSmall() {
