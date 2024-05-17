@@ -23,13 +23,44 @@
             flex: 5;
         }
 
+        .chatSelector:hover {
+            cursor: pointer;
+        }
+
     </style>
 </head>
 <body>
 <div class="container-fluid">
     <div class="row">
-        <div id="greenDiv">
-            <button class="btn btn-success" id="greenButton">Green Button</button>
+        <div class="container conversations" id="greenDiv">
+            <!--<button class="btn btn-success" id="greenButton">Green Button</button>-->
+            <div class="row chatSelector" id="diary">
+                <div class="col-4">
+                    <img src="images/home/techale.png" alt="Image description" class="img-fluid rounded-circle">
+                </div>
+                <div class="col-8">
+                    Name1<br>
+                    Message
+                </div>
+            </div>
+            <div class="row chatSelector" id="techale">
+                <div class="col-4">
+                    <img src="images/home/techale.png" alt="Image description" class="img-fluid rounded-circle">
+                </div>
+                <div class="col-8">
+                    Name2<br>
+                    Message
+                </div>
+            </div>
+            <div class="row chatSelector" id="fox">
+                <div class="col-4">
+                    <img src="images/home/techale.png" alt="Image description" class="img-fluid rounded-circle">
+                </div>
+                <div class="col-8">
+                    Name3<br>
+                    Message
+                </div>
+            </div>
         </div>
         <div id="redDiv">
             <button class="btn btn-danger" id="redButton">Red Button</button>
@@ -38,24 +69,29 @@
 </div>
 
 <script>
-    $(document).ready(function() {
-        $("#greenButton").click(function() {
+
+
+    $(document).ready(function () {
+        $(".chatSelector").click(function () {
             if (window.matchMedia("(max-width: 575px)").matches) {
-                $("#greenDiv").hide();
-                $("#redDiv").show();
+                showConversation()
             }
         });
 
-        $("#redButton").click(function() {
+        $("#redButton").click(function () {
             if (window.matchMedia("(max-width: 575px)").matches) {
-                $("#redDiv").hide();
-                $("#greenDiv").show();
+                showChatSelection()
             }
         });
     });
 
+    $("#greenDiv").on("click", "div.chatSelector", function() {
+        // Your function code goes here
+        console.log($(this).attr('id'));
+    });
+
     let isSmall = false;
-    window.addEventListener('resize', function() {
+    window.addEventListener('resize', function () {
         if (window.matchMedia("(max-width: 575px)").matches) {
             if (isSmall) {
                 return;
@@ -82,6 +118,16 @@
         $("#redDiv").show();
         $("#greenDiv").show().css("max-width", "300px");
         isSmall = false
+    }
+
+    function showConversation() {
+        $("#greenDiv").hide();
+        $("#redDiv").show();
+    }
+
+    function showChatSelection() {
+        $("#greenDiv").show();
+        $("#redDiv").hide();
     }
 </script>
 
