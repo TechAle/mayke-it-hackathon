@@ -11,32 +11,72 @@
     <style>
         #greenDiv {
             background-color: green;
-            height: 100px;
             min-width: 200px;
             max-width: 300px;
             flex: 1 0 10%;
         }
 
+        #greenDiv > * {
+            margin-top: 5px;
+        }
+
         #redDiv {
             background-color: red;
-            height: 100px;
             flex: 5;
         }
 
-        .chatSelector:hover {
+        .chatSelector:hover, #back:hover {
             cursor: pointer;
+        }
+
+        .maxHeight {
+            height: 100vh;
+        }
+
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            gap: 10px; /* adjust as needed */
+        }
+
+        #back {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* if you also want to center the text horizontally */
+        }
+
+        #nameSection {
+            padding-top: 7px;
+        }
+
+        #headerChat {
+            margin-left: 10px;
+        }
+
+        #mainBody > * {
+            padding-top: 8px;
+        }
+
+        #diary {
+            margin-top: 0;
+        }
+
+        #greenDiv > div > div > img {
+            height: 64px;
+            width: 60px;
         }
 
     </style>
 </head>
 <body>
-<div class="container-fluid">
-    <div class="row">
+<div class="container-fluid maxHeight">
+    <div class="row maxHeight" id="mainBody">
         <div class="container conversations" id="greenDiv">
             <!--<button class="btn btn-success" id="greenButton">Green Button</button>-->
             <div class="row chatSelector" id="diary">
                 <div class="col-4">
-                    <img src="images/home/techale.png" alt="Image description" class="img-fluid rounded-circle">
+                    <img src="images/home/techale.png" alt="Image description" class=" rounded-circle">
                 </div>
                 <div class="col-8">
                     Name1<br>
@@ -45,7 +85,7 @@
             </div>
             <div class="row chatSelector" id="techale">
                 <div class="col-4">
-                    <img src="images/home/techale.png" alt="Image description" class="img-fluid rounded-circle">
+                    <img src="images/home/techale.png" alt="Image description" class=" rounded-circle">
                 </div>
                 <div class="col-8">
                     Name2<br>
@@ -54,7 +94,7 @@
             </div>
             <div class="row chatSelector" id="fox">
                 <div class="col-4">
-                    <img src="images/home/techale.png" alt="Image description" class="img-fluid rounded-circle">
+                    <img src="images/home/techale.png" alt="Image description" class=" rounded-circle">
                 </div>
                 <div class="col-8">
                     Name3<br>
@@ -63,7 +103,24 @@
             </div>
         </div>
         <div id="redDiv">
-            <button class="btn btn-danger" id="redButton">Red Button</button>
+            <div id="headerChat">
+                <div class="row">
+                    <div class="col-4 flex-container" id="goBackSection">
+                        <div id="back">Back</div>
+                        <img style="height: 64px" src="images/home/techale.png" alt="Image description" class=" rounded-circle">
+                    </div>
+                    <div class="col-8 text-center" id="nameSection">
+                        <div>Name 1</div>
+                        <div>Status</div>
+                    </div>
+                </div>
+            </div>
+            <div id="chat">
+
+            </div>
+            <div id="input">
+
+            </div>
         </div>
     </div>
 </div>
@@ -73,39 +130,47 @@
 
     $(document).ready(function () {
         $(".chatSelector").click(function () {
+            changeConversation($(this).attr('id'))
             if (window.matchMedia("(max-width: 575px)").matches) {
                 showConversation()
             }
         });
 
-        $("#redButton").click(function () {
+        $("#back").click(function () {
             if (window.matchMedia("(max-width: 575px)").matches) {
                 showChatSelection()
             }
         });
+        changeHeaderPadding()
     });
 
-    $("#greenDiv").on("click", "div.chatSelector", function() {
-        // Your function code goes here
-        console.log($(this).attr('id'));
-    });
+
+    function changeConversation(id) {
+        console.log(id)
+    }
 
     let isSmall = false;
-    window.addEventListener('resize', function () {
+
+
+    $(window).resize(function() {
         if (window.matchMedia("(max-width: 575px)").matches) {
             if (isSmall) {
                 return;
             }
             onSmall()
         } else {
+            changeHeaderPadding()
             if (!isSmall) {
                 return;
             }
             onBig()
         }
     });
-    if (window.matchMedia("(max-width: 575px)").matches) {
-        onSmall()
+
+
+    function changeHeaderPadding() {
+        var goBackSectionWidth = $('#goBackSection').width();
+        $('#nameSection').css('padding-right', goBackSectionWidth + 'px');
     }
 
     function onSmall() {
