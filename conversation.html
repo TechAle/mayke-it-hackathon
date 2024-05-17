@@ -227,18 +227,18 @@
 <script>
 
     $('#arrow').click(() => {
-        newMessage($('#selectInput').val())
+        newMessage($('#selectInput').val(), false)
     });
 
-    function newMessage(input) {
-        const message = buildMessage(input);
+    function newMessage(input, isReceived) {
+        const message = buildMessage(input, isReceived);
         $('#chat').append(message);
     }
 
-    function buildMessage(text) {
+    function buildMessage(text, isReceived = false) {
         var element = document.createElement('div');
 
-        element.classList.add('message', 'sent');
+        element.classList.add('message', isReceived ? 'received' : 'sent');
 
         element.innerHTML = text;
 
