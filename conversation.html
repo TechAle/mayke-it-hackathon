@@ -25,7 +25,7 @@
             flex: 5;
         }
 
-        .chatSelector:hover, #back:hover {
+        .chatSelector:hover, #back:hover, #arrow:hover {
             cursor: pointer;
         }
 
@@ -80,6 +80,87 @@
             margin-left: 0;
         }
 
+        #headerChat {
+            height: 10%;
+        }
+
+        #chat {
+            background-color: yellow;
+            height: 82%;
+            overflow-y: scroll;
+            padding: 10px;
+        }
+
+        #input {
+            height: 8%;
+            padding-top: 8px;
+            text-align: center;
+        }
+
+        #input > label {
+            width: 100%;
+        }
+
+        #selectInput {
+            display: initial !important;
+            width: 80%;
+        }
+
+        .message {
+            color: #000;
+            clear: both;
+            line-height: 18px;
+            font-size: 15px;
+            padding: 8px;
+            position: relative;
+            margin: 8px 0;
+            max-width: 85%;
+            word-wrap: break-word;
+        }
+
+        .message:after {
+            position: absolute;
+            content: "";
+            width: 0;
+            height: 0;
+            border-style: solid;
+        }
+
+        .message:first-child {
+            margin: 16px 0 8px;
+        }
+
+        .message.received {
+            background: #fff;
+            border-radius: 0px 5px 5px 5px;
+            float: left;
+        }
+
+
+        .message.received .metadata {
+            padding: 0 0 0 16px;
+        }
+
+        .message.received:after {
+            border-width: 0px 10px 10px 0;
+            border-color: transparent #fff transparent transparent;
+            top: 0;
+            left: -10px;
+        }
+
+        .message.sent {
+            background: #e1ffc7;
+            border-radius: 5px 0px 5px 5px;
+            float: right;
+        }
+
+        .message.sent:after {
+            border-width: 0px 0 10px 10px;
+            border-color: transparent transparent transparent #e1ffc7;
+            top: 0;
+            right: -10px;
+        }
+
     </style>
 </head>
 <body>
@@ -107,7 +188,7 @@
         </div>
         <div id="redDiv">
             <div id="headerChat">
-                <div class="row">
+                <div class="row" style="margin: 0">
                     <div class="col-4 flex-container" id="goBackSection">
                         <div id="back">Back</div>
                         <img style="height: 64px" src="images/home/techale.png" alt="Image description" class=" rounded-circle">
@@ -119,10 +200,25 @@
                 </div>
             </div>
             <div id="chat">
+                <div class="message received">
+                    You were drunk.
+                </div>
+
+                <div class="message sent">
+                    I was not drunk.
+                </div>
 
             </div>
             <div id="input">
-
+                <label>
+                    Response:
+                    <select class="form-control" id="selectInput">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                    <span id="arrow">Send</span>
+                </label>
             </div>
         </div>
     </div>
@@ -130,6 +226,24 @@
 
 <script>
 
+    $('#arrow').click(() => {
+        newMessage($('#selectInput').val())
+    });
+
+    function newMessage(input) {
+        const message = buildMessage(input);
+        $('#chat').append(message);
+    }
+
+    function buildMessage(text) {
+        var element = document.createElement('div');
+
+        element.classList.add('message', 'sent');
+
+        element.innerHTML = text;
+
+        return element;
+    }
 
     $(document).ready(function () {
         $(".chatSelector").click(function () {
