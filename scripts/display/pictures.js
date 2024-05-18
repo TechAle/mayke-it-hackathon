@@ -1,6 +1,7 @@
 let onOverlay = false;
-$('img').click((event) => {
-    if (!onOverlay) {
+$(document).on('click', 'img', (event) => {
+    console.log("ciao")
+    if (!onOverlay && event.target.id !== "closeOverlay" && event.target.id !== "overlay" && event.target.id !== "overlayPicture") {
         $("#overlayPicture").attr("src", event.target.src);
         $('#overlay').show();
         onOverlay = true;

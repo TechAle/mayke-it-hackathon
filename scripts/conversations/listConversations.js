@@ -28,6 +28,18 @@ const conversations = {
     },
     "TechAle" : {
         "description" : "A chatbot that helps the user with their daily tasks",
-        "icon" : "techale.png"
+        "icon" : "techale.png",
+        "messages": {
+            "firstMessage": {
+                "text": "Test",
+                "options": ["Test"],
+                "effect": "None"
+            },
+            "Test": {
+                "text": "Test",
+                "options": ["Test"],
+                "effect": "None",
+            }
+        }
     },
 }

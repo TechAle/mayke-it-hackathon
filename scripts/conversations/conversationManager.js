@@ -1,6 +1,6 @@
 let currentChat = null
 $(document).ready(function () {
-    $(".chatSelector").click(function () {
+    $(document).on('click', '.chatSelector', function() {
         changeConversation($(this).attr('id'))
         if (window.matchMedia("(max-width: 575px)").matches) {
             showConversation()
@@ -55,7 +55,7 @@ function loadConversations() {
         let chatSelector = document.createElement('div')
         chatSelector.classList.add('row')
         chatSelector.classList.add('chatSelector')
-        chatSelector.id = "diary"
+        chatSelector.id = name
         chatSelector.appendChild(imageTextContainer)
 
         $("#greenDiv")[0].appendChild(chatSelector)
@@ -85,7 +85,7 @@ function sendMessage(message) {
 
 let status = ""
 function changeConversation(id) {
-    //$("#chat").empty()
+    $("#chat").empty()
     currentChat = id
     sendMessage("firstMessage")
     $("#pfp").attr("src", "images/conversation/" + conversations[id]["icon"])

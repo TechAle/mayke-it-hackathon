@@ -4,6 +4,11 @@ const statudDiv = $("#StatusDiv")
 
 $(window).resize(function() {
 
+    onResize()
+
+});
+
+function onResize() {
     if (window.matchMedia("(max-width: 575px)").matches) {
         if (isSmall) {
             return;
@@ -17,8 +22,7 @@ $(window).resize(function() {
         }
         onBig()
     }
-
-});
+}
 
 function fixDiv() {
     let lenStatus = statusNow.width()
@@ -38,7 +42,6 @@ function fixDiv() {
         }
 
     } else {
-        console.log("space: " + space)
         while (space < -80 && statusNow.text() !== status) {
             statusNow.text(status.substring(0, statusNow.text().length - 1))
             if (statusNow.text() !== status) {
@@ -71,9 +74,12 @@ function onBig() {
 function showConversation() {
     $("#greenDiv").hide();
     $("#redDiv").show();
+    fixDiv()
 }
 
 function showChatSelection() {
     $("#greenDiv").show();
     $("#redDiv").hide();
 }
+
+onResize()

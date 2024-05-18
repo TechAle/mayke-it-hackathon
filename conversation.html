@@ -28,7 +28,7 @@
             overflow: hidden;
         }
 
-        .chatSelector:hover, #back:hover, #arrow:hover, .message > img:hover, #closeOverlay:hover {
+        .chatSelector:hover, #back:hover, #arrow:hover, img:hover, #closeOverlay:hover {
             cursor: pointer;
         }
 
@@ -192,8 +192,9 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            height: 100vh;
-            width: auto;
+            width: fit-content;
+            height: fit-content;
+            z-index: 1;
         }
 
         #closeOverlay {
@@ -202,6 +203,7 @@
             font-size: 50px;
             padding: 10px;
             width: 128px;
+            z-index: 2;
         }
 
         .containerHeader {
@@ -211,6 +213,12 @@
 
         #back {
             margin-right: 10px; /* adjust as needed */
+        }
+
+        @media (max-width: 850px) {
+            #response {
+                display: none;
+            }
         }
 
 
@@ -243,7 +251,7 @@
             </div>
             <div id="input">
                 <label>
-                    Response:
+                    <span id="response">Response:</span>
                     <select class="form-control" id="selectInput">
                         <option value="option1">Option 1</option>
                         <option value="option2">Option 2</option>
