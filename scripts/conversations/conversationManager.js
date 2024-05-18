@@ -85,7 +85,7 @@ function sendMessage(message) {
 
 let status = ""
 function changeConversation(id) {
-    $("#chat").empty()
+    //$("#chat").empty()
     currentChat = id
     sendMessage("firstMessage")
     $("#pfp").attr("src", "images/conversation/" + conversations[id]["icon"])

@@ -25,6 +25,7 @@
             background-color: red;
             flex: 5;
             height: 100vh;
+            overflow: hidden;
         }
 
         .chatSelector:hover, #back:hover, #arrow:hover, .message > img:hover, #closeOverlay:hover {
@@ -242,14 +243,6 @@
                     Test
                 </div>
 
-                <div class="message sent">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Platea dictumst quisque sagittis purus sit amet volutpat consequat mauris. Quis eleifend quam adipiscing vitae proin sagittis nisl rhoncus mattis. Ornare lectus sit amet est placerat in. A lacus vestibulum sed arcu non odio euismod lacinia at. Velit laoreet id donec ultrices tincidunt. Tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum. Porta non pulvinar neque laoreet suspendisse interdum consectetur libero id. Iaculis at erat pellentesque adipiscing. Rhoncus est pellentesque elit ullamcorper dignissim. Quam id leo in vitae turpis. Quis ipsum suspendisse ultrices gravida dictum fusce ut. Aliquet bibendum enim facilisis gravida neque convallis a. Nec dui nunc mattis enim ut tellus. Augue lacus viverra vitae congue eu consequat.
-                </div>
-
-                <div class="message sent">
-                    <img src="images/home/bepp.jpeg" alt="Description of image"/>
-                </div>
-
             </div>
             <div id="input">
                 <label>
@@ -270,31 +263,11 @@
 <script src="scripts/display/resize.js"></script>
 <script src="scripts/display/pictures.js"></script>
 <script src="scripts/effectManager.js"></script>
+<script src="scripts/skills/skillManager.js"></script>
 <script src="scripts/conversations/conversationManager.js"></script>
 <script>
 
-    skills = {
-        "intelligence": {
-            "lvl": 0,
-            "xp": 0
-        },
-        "strength": {
-            "lvl": 0,
-            "xp": 0
-        },
-        "agility": {
-            "lvl": 0,
-            "xp": 0
-        },
-        "charisma": {
-            "lvl": 0,
-            "xp": 0
-        },
-        "dexterity": {
-            "lvl": 0,
-            "xp": 0
-        }
-    }
+
 
 
 
