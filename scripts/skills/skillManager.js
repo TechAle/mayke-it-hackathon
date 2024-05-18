@@ -20,3 +20,7 @@ skills = {
         "xp": 0
     }
 }
+
+function loadSkillsFromCookies() {
+
+}
