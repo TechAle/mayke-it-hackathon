@@ -17,3 +17,16 @@ const questsPersonal = {
 }
 let startedQuestsPersonal = []
 let completedQuestsPersonal = {}
+
+loadQuestsFromCookies()
+function loadQuestsFromCookies() {
+    if (getCookie("startedQuestsPersonal")) {
+        startedQuestsPersonal = JSON.parse(getCookie("startedQuestsPersonal"))
+    }
+    if (getCookie("completedQuestsPersonal")) {
+        completedQuestsPersonal = JSON.parse(getCookie("completedQuestsPersonal"))
+        for(let quest in completedQuestsPersonal) {
+            completedQuestsPersonal[quest] = new Date(completedQuestsPersonal[quest])
+        }
+    }
+}

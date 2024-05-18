@@ -96,6 +96,10 @@ function manageEffects(name) {
                     reward += questsPersonal[id]["reward"][r] + " "
                     manageEffects(questsPersonal[id]["reward"][r])
                 }
+                // Save completedQuestsPersonal
+                setCookie("completedQuestsPersonal", JSON.stringify(completedQuestsPersonal))
+                // Save startedQuestsPersonal
+                setCookie("startedQuestsPersonal", JSON.stringify(startedQuestsPersonal))
             });
             if (reward !== "")
                 setTimeout(function() {
@@ -109,6 +113,8 @@ function manageEffects(name) {
                 startedQuestsPersonal.push($(this).attr('id'));
             });
             $(".formSubmit").replaceWith("<p>Quests accepted!</p>")
+            // Save startedQuestsPersonal
+            setCookie("startedQuestsPersonal", JSON.stringify(startedQuestsPersonal))
             break
 
         case "None":
@@ -127,6 +133,7 @@ function manageEffects(name) {
                             newMessage("Level up! " + skill + " is now level " + skills[skill]["lvl"], true)
                         }, 800);
                     }
+                    setCookie("skills", JSON.stringify(skills))
                 }
             } else
                 console.log(name)

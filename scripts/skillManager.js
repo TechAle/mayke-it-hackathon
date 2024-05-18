@@ -1,4 +1,4 @@
-skills = {
+let skills = {
     "intelligence": {
         "lvl": 0,
         "xp": 0
@@ -22,5 +22,9 @@ skills = {
 }
 
 function loadSkillsFromCookies() {
-
+    if (getCookie("skills")) {
+        skills = JSON.parse(getCookie("skills"))
+    }
 }
+
+loadSkillsFromCookies()
