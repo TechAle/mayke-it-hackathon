@@ -92,5 +92,6 @@ function changeConversation(id) {
     $("#StatusUser").text(conversations[id]["description"])
     status = conversations[id]["description"]
     $("#NameUser").text(id)
+    fixDiv()
 }
 
