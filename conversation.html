@@ -218,7 +218,7 @@
 </head>
 <body>
 <div id="overlay">
-    <img id="closeOverlay" src="images/conversation/close.png"/>
+    <img id="closeOverlay" src="images/conversation/close.png" alt="close"/>
     <img src="images/home/techale.png" alt="Description of image" id="overlayPicture"/>
 </div>
 <div class="container-fluid maxHeight">
@@ -240,7 +240,29 @@
             </div>
             <div id="chat">
                 <div class="message received">
-                    Test
+                    <form onsubmit="onForm(event, 'startQuests')" class="formSubmit">
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="quest1">
+                                <label class="form-check-label" for="quest1">
+                                    Quest 1
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="quest2">
+                                <label class="form-check-label" for="quest2">
+                                    Quest 2
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="quest3">
+                                <label class="form-check-label" for="quest3">
+                                    Quest 3
+                                </label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Start Quests</button>
+                    </form>
                 </div>
 
             </div>

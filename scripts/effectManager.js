@@ -1,3 +1,8 @@
+function onForm(event, name) {
+    event.preventDefault()
+    manageEffects(name)
+}
+
 function manageEffects(name) {
     switch (name) {
 
@@ -12,6 +17,15 @@ function manageEffects(name) {
             setTimeout(function() {
                 newMessage(message, true)
             }, 1000);
+            break
+
+        case "startQuests":
+            let newQuests = [];
+            $('.form-check-input:checked').each(function() {
+                newQuests.push($(this).attr('id'));
+            });
+            console.log(newQuests);
+            $(".formSubmit").replaceWith("<p>Quests accepted!</p>")
             break
 
         case "None":
