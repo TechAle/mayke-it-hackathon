@@ -4,6 +4,8 @@ function onForm(event, name) {
 }
 
 function manageEffects(name) {
+    let message = ""
+    let before = false
     switch (name) {
 
         case "Print stats":
@@ -19,12 +21,93 @@ function manageEffects(name) {
             }, 1000);
             break
 
-        case "startQuests":
-            let newQuests = [];
+        case "Print new quests":
+            message = ""
+            before = false
+
+            message = '<form onsubmit="onForm(event, \'startPersonalQuests\')" class="formSubmit">\n' +
+                '                        <div class="form-group">'
+
+            for (let quest in questsPersonal) {
+                if (startedQuestsPersonal.indexOf(quest) !== -1) continue
+                const description = questsPersonal[quest]["description"]
+                const reqs = questsPersonal[quest]["requiredQuest"]
+                if (reqs === "" || (completedQuestsPersonal.hasOwnProperty(reqs))) {
+                    if (!completedQuestsPersonal.hasOwnProperty(quest) || hasOneDayPassed(new Date(), completedQuestsPersonal[quest]))
+                        message += '<div class="form-check">\n' +
+                            '                                <input class="form-check-input" type="checkbox" value="" id="'+quest+'">\n' +
+                            '                                <label class="form-check-label" for="quest3">\n' +
+                            '                                    '+quest+': '+description+'\n' +
+                            '                                </label>\n' +
+                            '                            </div>'
+
+                }
+            }
+
+            message += '</div>\n' +
+                '                        <button type="submit" class="btn btn-primary">Start Quests</button>\n' +
+                '                    </form>'
+
+            setTimeout(function() {
+                newMessage(message, true)
+            }, 1000);
+            break
+
+        case "Print current quests":
+            message = ""
+            before = false
+
+            message = '<form onsubmit="onForm(event, \'completedQuests\')" class="formSubmit">\n' +
+                '                        <div class="form-group">'
+
+            for (let quest in startedQuestsPersonal) {
+                quest = startedQuestsPersonal[quest]
+                const description = questsPersonal[quest]["description"]
+                message += '<div class="form-check">\n' +
+                    '                                <input class="form-check-input" type="checkbox" value="" id="'+quest+'">\n' +
+                    '                                <label class="form-check-label" for="quest3">\n' +
+                    '                                    '+quest+': '+description+'\n' +
+                    '                                </label>\n' +
+                    '                            </div>'
+
+                }
+
+
+            message += '</div>\n' +
+                '                        <button type="submit" class="btn btn-primary">Mark as completed</button>\n' +
+                '                    </form>'
+
+            setTimeout(function() {
+                newMessage(message, true)
+            }, 1000);
+            break
+
+        case "completedQuests":
+            let reward = ""
             $('.form-check-input:checked').each(function() {
-                newQuests.push($(this).attr('id'));
+                let id = $(this).attr('id')
+                completedQuestsPersonal[id] = new Date()
+                // And delete from startedQuestsPersonal
+                startedQuestsPersonal = startedQuestsPersonal.filter(function(value) {
+                    return value !== id;
+                });
+                for(const r in questsPersonal[id]["reward"]) {
+                    if (reward === "") reward += "Reward: "
+                    reward += questsPersonal[id]["reward"][r] + " "
+                    manageEffects(questsPersonal[id]["reward"][r])
+                }
             });
-            console.log(newQuests);
+            if (reward !== "")
+                setTimeout(function() {
+                        newMessage(reward, true)
+                    }, 800);
+                    $(".formSubmit").replaceWith("<p>Quests completed!</p>")
+            break
+
+        case "startPersonalQuests":
+            $('.form-check-input:checked').each(function() {
+                startedQuestsPersonal.push($(this).attr('id'));
+            });
             $(".formSubmit").replaceWith("<p>Quests accepted!</p>")
             break
 
@@ -32,7 +115,27 @@ function manageEffects(name) {
             break
 
         default:
-            // Here checks like "Give X amount of xp"
-            console.log(name)
+            if (name.split(" ").length > 1) {
+                if (skills.hasOwnProperty(name.split(" ")[0])) {
+                    const skill = name.split(" ")[0]
+                    const xp = parseInt(name.split(" ")[1])
+                    skills[skill]["xp"] += xp
+                    if (skills[skill]["xp"] >= 100) {
+                        skills[skill]["xp"] -= 100
+                        skills[skill]["lvl"] += 1
+                        setTimeout(function() {
+                            newMessage("Level up! " + skill + " is now level " + skills[skill]["lvl"], true)
+                        }, 800);
+                    }
+                }
+            } else
+                console.log(name)
     }
+}
+
+function hasOneDayPassed(date1, date2) {
+    const oneDayInMilliseconds = 24 * 60 * 60 * 1000;
+    const differenceInMilliseconds = Math.abs(date1.getTime() - date2.getTime());
+
+    return differenceInMilliseconds >= oneDayInMilliseconds;
 }
