@@ -6,7 +6,7 @@ const conversations = {
         "messages": {
             "firstMessage": {
                 "text": "Hello! What do you want to do today?",
-                "options": ["Check stats", "Check new quests improvement", "Check current quests improvement", "Check new quests story", "Check current quests improvement story"],
+                "options": ["Check stats", "Check new quests improvement", "Check current quests improvement", "Check new quests story", "Check current quests story"],
                 "effect": "None"
             },
             "Check stats": {

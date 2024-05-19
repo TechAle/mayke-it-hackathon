@@ -122,12 +122,11 @@ function manageEffects(name) {
                 '                        <div class="form-group">'
 
             for (let quest in startedQuestsStory) {
-                quest = startedQuestsStory[quest]
-                const description = startedQuestsStory[quest]["description"]
-                message += '<div class="form-check">\n' +
-                    '                                <input class="form-check-input" type="checkbox" value="" id="'+quest+'">\n' +
-                    '                                <label class="form-check-label" for="quest3">\n' +
-                    '                                    '+quest+': '+description+'\n' +
+                let questNow = questStory[startedQuestsStory[quest]]
+                const description = questNow["description"]
+                message += '<div class="form-check" style="padding-left: 0">\n' +
+                    '                                <label class="form-check-label" for="quest3">\n - ' +
+                    '                                    '+startedQuestsStory[quest]+': '+description+'\n' +
                     '                                </label>\n' +
                     '                            </div>'
 
