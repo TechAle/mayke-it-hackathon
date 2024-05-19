@@ -9,7 +9,7 @@ const questStory = {
         "description": "Lol yeha idk",
         "requiredQuest": "Talk to techale",
         "reward": ["dexterity 80", "strength 20"],
-        "conversation": "Techle2"
+        "conversation": "TechAle2"
     },
     "Test": {
         "description": "Test",

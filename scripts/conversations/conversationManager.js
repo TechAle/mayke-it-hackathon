@@ -66,7 +66,7 @@ function loadConversations() {
             changeConversation(name)
         } else {
             // hide the chat selector
-            if (!startedQuestsStory.includes(conversationUnlock[name])) {
+            if (!startedQuestsStory.includes(conversationUnlock[name]) && !completedQuestsStory.includes(conversationUnlock[name])){
             chatSelector.style.display = "none"
                 }
             $("#greenDiv")[0].appendChild(chatSelector)

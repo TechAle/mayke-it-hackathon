@@ -220,8 +220,11 @@ function manageEffects(name) {
                 startedQuestsStory = startedQuestsStory.filter(function(value) {
                     return value !== name.split("-")[1];
                 });
+                manageEffects("reward-"+name.split("-")[1])
+                // Save startedQuestsStory
+                setCookie("startedQuestsStory", JSON.stringify(startedQuestsStory))
 
-            } else if (name.split("-")[0] === "continue"){
+            } else if (name.split("-")[0] === "continue") {
                 // continue-Yes please-No please-Talk to techale
                 const s = name.split("-")
                 if (hasOneDayPassed(new Date(), cooldownQuestsStory[s[3]])) {
@@ -234,17 +237,17 @@ function manageEffects(name) {
                     newMessage(s[2], true)
                     // Calculate the difference between now and the cooldown
                     const diff = Math.abs(new Date() - cooldownQuestsStory[s[3]] + 24 * 60 * 60 * 1000)
-                    const minutes = Math.floor((diff/1000)/60)
+                    const minutes = Math.floor((diff / 1000) / 60)
                     // hours
-                    const hours = Math.floor(minutes/60)
+                    const hours = Math.floor(minutes / 60)
                     // Send it in 1 second
-                    setTimeout(function() {
+                    setTimeout(function () {
                         if (hours > 0)
                             newMessage("Maybe try in " + hours + " hours", false)
                         else
                             newMessage("Maybe try in " + minutes + " minutes", false)
                         // Add cooldown
-                        setTimeout(function() {
+                        setTimeout(function () {
                             newMessage(conversations[questStory[s[3]]["conversation"]]["messages"][s[5]]["suggestion"], false)
 
                         }, 1000);
@@ -252,7 +255,32 @@ function manageEffects(name) {
 
                 }
                 return false
-            } else if (name.split(" ").length > 1) {
+            } else if (name.split("-")[0] === "reward") {
+                const quest = name.split("-")[1]
+                // Add delay
+                setTimeout(function() {
+                    newMessage("Quest completed! " + quest, true)
+                    // Add delay
+                    setTimeout(function() {
+                        newMessage("Rewards: ", true)
+                        let outputMessage = ""
+                        for (const r in questStory[quest]["reward"]) {
+                            manageEffects(questStory[quest]["reward"][r])
+                            outputMessage += questStory[quest]["reward"][r] + " "
+                        }
+                        setTimeout(function() {
+                            newMessage(outputMessage, true)
+                        }, 800);
+                    }, 800);
+                }, 800);
+
+            } else if (name.split("-")[0] === "giveKarma") {
+                const karma = name.split("-")[1]
+                karmaUnlocked.push(karma)
+                // Save in cookie
+                setCookie("karmaUnlocked", JSON.stringify(karmaUnlocked))
+            }
+            else if (name.split(" ").length > 1) {
                 if (skills.hasOwnProperty(name.split(" ")[0])) {
                     const skill = name.split(" ")[0]
                     const xp = parseInt(name.split(" ")[1])

@@ -119,13 +119,13 @@ const conversations = {
         "messages": {
             "firstMessage": {
                 "response": "Hi",
-                "options": ["Hi", "Hi but more excited (dext 5)", "Hi honey (charisma level 5 requires)"],
+                "options": ["Test"],
                 "effect": "None"
             },
             "Test": {
                 "response": "Test",
                 "options": ["Test"],
-                "effect": "None",
+                "effect": "success-Brainstorm with techale",
             },
         }
     },
