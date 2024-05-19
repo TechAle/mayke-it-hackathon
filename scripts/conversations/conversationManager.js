@@ -122,6 +122,10 @@ function changeConversation(id) {
         optionsHistory[currentChat].forEach(option => {
             $("#selectInput").append(`<option value="${option}">${option}</option>`)
         })
+        // Scroll all the way down
+        let divElement = document.getElementById('chat');
+        divElement.scrollTop = divElement.scrollHeight;
+
     }
     $("#pfp").attr("src", "images/conversation/" + conversations[id]["icon"])
     $("#StatusUser").text(conversations[id]["description"])
