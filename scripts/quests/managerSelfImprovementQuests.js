@@ -18,8 +18,8 @@ const questsPersonal = {
 let startedQuestsPersonal = []
 let completedQuestsPersonal = {}
 
-loadQuestsFromCookies()
-function loadQuestsFromCookies() {
+loadQuestsImprovementFromCookies()
+function loadQuestsImprovementFromCookies() {
     if (getCookie("startedQuestsPersonal")) {
         startedQuestsPersonal = JSON.parse(getCookie("startedQuestsPersonal"))
     }
