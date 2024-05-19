@@ -22,6 +22,8 @@ function newMessage(input, isReceived) {
     let wait = 0
     if (isReceived) {
         wait = 750
+    } else {
+        // TODO if i have time, maybe try to change the input with "message"
     }
     setTimeout(function() {
         const message = buildMessage(input, isReceived);
@@ -51,7 +53,7 @@ function loadConversations() {
         image.classList.add('rounded-circle')
         imageTextContainer.appendChild(image)
         let toAdd = values['description']
-        imageTextContainer.innerHTML += name + "<br>" + toAdd
+        imageTextContainer.innerHTML += values['name'] + "<br>" + toAdd
         let chatSelector = document.createElement('div')
         chatSelector.classList.add('row')
         chatSelector.classList.add('chatSelector')
@@ -80,13 +82,14 @@ $('#arrow').click(() => {
 
 function sendMessage(message) {
     const currentChatOptions = conversations[currentChat]["messages"][message]
-    newMessage(currentChatOptions["text"], true)
+    if (manageEffects(currentChatOptions["effect"])) {
+    newMessage(currentChatOptions["response"], true)
     const options = currentChatOptions["options"]
     $("#selectInput").empty()
     options.forEach(option => {
         $("#selectInput").append(`<option value="${option}">${option}</option>`)
     })
-    manageEffects(currentChatOptions["effect"])
+        }
 }
 
 let status = ""
@@ -97,7 +100,7 @@ function changeConversation(id) {
     $("#pfp").attr("src", "images/conversation/" + conversations[id]["icon"])
     $("#StatusUser").text(conversations[id]["description"])
     status = conversations[id]["description"]
-    $("#NameUser").text(id)
+    $("#NameUser").text(conversations[id]["name"])
     fixDiv()
 }
 

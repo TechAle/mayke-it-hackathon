@@ -190,6 +190,7 @@ function manageEffects(name) {
         case "None":
             break
 
+
         default:
             if (name.split(" ").length > 1) {
                 if (skills.hasOwnProperty(name.split(" ")[0])) {
@@ -205,9 +206,24 @@ function manageEffects(name) {
                     }
                     setCookie("skills", JSON.stringify(skills))
                 }
+            } else if (name.split("-")[0] === "check") {
+                // check-dexterity-5-firstMessage
+                const toCheck = name.split("-")
+                if (skills.hasOwnProperty(toCheck[1])) {
+                    if (skills[toCheck[1]]["lvl"] >= parseInt(toCheck[2])) {
+                        // Success
+                    } else {
+                        // Failure
+                        newMessage("You need " + toCheck[2] + " " + toCheck[1] + " to do this", true);
+                        sendMessage(toCheck[3])
+                        return false
+                    }
+                }
+
             } else
                 console.log(name)
     }
+    return true
 }
 
 function hasOneDayPassed(date1, date2) {
