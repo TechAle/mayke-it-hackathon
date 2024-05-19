@@ -37,7 +37,7 @@ const conversations = {
             }
         }
     },
-    "TechAle" : {
+    "TechAle1" : {
         "description" : "A chatbot that helps the user with their daily tasks",
         "icon" : "techale.png",
         "messages": {
@@ -53,4 +53,34 @@ const conversations = {
             }
         }
     },
+
+    "TechAle2" : {
+        "description" : "A new generation lol",
+        "icon" : "techale.png",
+        "messages": {
+            "firstMessage": {
+                "text": "Hi",
+                "options": ["Hi", "Hi but more excited (dext 5)", "Hi honey (charisma level 5 requires)"],
+                "effect": "None"
+            },
+            "Test": {
+                "text": "Test",
+                "options": ["Test"],
+                "effect": "None",
+            }
+        }
+    },
+
+    "Test" : {
+        "description": "A test conversation",
+        "icon": "test.png",
+        "messages": {
+            "firstMessage": {
+                "text": "Test",
+                "options": ["Test"],
+                "effect": "None"
+            }
+        }
+
+    }
 }

@@ -53,6 +53,38 @@ function manageEffects(name) {
             }, 1000);
             break
 
+        case "Print new quests story":
+            message = ""
+            before = false
+
+            message = '<form onsubmit="onForm(event, \'startStoryQuests\')" class="formSubmit">\n' +
+                '                        <div class="form-group">'
+
+            for (let quest in questStory) {
+                if (startedQuestsStory.indexOf(quest) !== -1) continue
+                const description = questStory[quest]["description"]
+                const reqs = questStory[quest]["requiredQuest"]
+                if (reqs === "" || (completedQuestsStory.hasOwnProperty(reqs))) {
+
+                    message += '<div class="form-check">\n' +
+                        '                                <input class="form-check-input" type="checkbox" value="" id="'+quest+'">\n' +
+                        '                                <label class="form-check-label" for="quest3">\n' +
+                        '                                    '+quest+': '+description+'\n' +
+                        '                                </label>\n' +
+                        '                            </div>'
+
+                }
+            }
+
+            message += '</div>\n' +
+                '                        <button type="submit" class="btn btn-primary">Start Quests</button>\n' +
+                '                    </form>'
+
+            setTimeout(function() {
+                newMessage(message, true)
+            }, 1000);
+            break
+
         case "Print current quests":
             message = ""
             before = false
@@ -75,6 +107,34 @@ function manageEffects(name) {
 
             message += '</div>\n' +
                 '                        <button type="submit" class="btn btn-primary">Mark as completed</button>\n' +
+                '                    </form>'
+
+            setTimeout(function() {
+                newMessage(message, true)
+            }, 1000);
+            break
+
+        case "Print current quests story":
+            message = ""
+            before = false
+
+            message = '<form onsubmit="onForm(event, \'completedQuests\')" class="formSubmit">\n' +
+                '                        <div class="form-group">'
+
+            for (let quest in startedQuestsStory) {
+                quest = startedQuestsStory[quest]
+                const description = startedQuestsStory[quest]["description"]
+                message += '<div class="form-check">\n' +
+                    '                                <input class="form-check-input" type="checkbox" value="" id="'+quest+'">\n' +
+                    '                                <label class="form-check-label" for="quest3">\n' +
+                    '                                    '+quest+': '+description+'\n' +
+                    '                                </label>\n' +
+                    '                            </div>'
+
+            }
+
+
+            message += '</div>\n' +
                 '                    </form>'
 
             setTimeout(function() {
@@ -115,6 +175,17 @@ function manageEffects(name) {
             $(".formSubmit").replaceWith("<p>Quests accepted!</p>")
             // Save startedQuestsPersonal
             setCookie("startedQuestsPersonal", JSON.stringify(startedQuestsPersonal))
+            break
+
+        case "startStoryQuests":
+            $('.form-check-input:checked').each(function() {
+                startedQuestsStory.push($(this).attr('id'));
+                // Show the conversation with id
+                $("#" + questStory[$(this).attr('id')]["conversation"])[0].style.display = "initial"
+            });
+            $(".formSubmit").replaceWith("<p>Quests accepted!</p>")
+            // Save startedQuestsPersonal
+            setCookie("startedQuestsStory", JSON.stringify(startedQuestsStory))
             break
 
         case "None":

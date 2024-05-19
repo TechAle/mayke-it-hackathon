@@ -58,10 +58,16 @@ function loadConversations() {
         chatSelector.id = name
         chatSelector.appendChild(imageTextContainer)
 
-        $("#greenDiv")[0].appendChild(chatSelector)
 
         if (values["default"] === true) {
+            $("#greenDiv")[0].appendChild(chatSelector)
             changeConversation(name)
+        } else {
+            // hide the chat selector
+            if (!startedQuestsStory.includes(conversationUnlock[name])) {
+            chatSelector.style.display = "none"
+                }
+            $("#greenDiv")[0].appendChild(chatSelector)
         }
 
     }
