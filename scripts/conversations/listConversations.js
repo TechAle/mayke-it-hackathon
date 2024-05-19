@@ -1,3 +1,25 @@
+/*
+    Note:
+    - The conversation name must be unique
+    - There cannot be 2 conversation with default=true
+    The composition of every message:
+    - Key = Key of the message, needed i  options
+    - Message = What you send WIP, for now we send Key
+    - options = Which options we can take
+    - effect = What happens when we take the option
+    Of the effects:
+    - None = Nothing happens
+    - Print stats = Print the stats
+    - Print new quests = Print the new quests
+    - Print current quests = Print the current quests
+    - check-dexterity-5-firstMessage = Check if dexterity is 5, if no, print firstMessage, else continue like normal
+        This can be used with every kind of skills
+    - failure-Talk to techale = It sets to failure the quest Talk to techale
+        TODO this should be automatic lol, but for now i dont have time, it should also solve Message tho
+    - success-Talk to techale = It sets to success the quest Talk to techale
+    - dexterity 35, it gives 35 xp to dexterity, it can be used with any skills
+ */
+
 const conversations = {
     "diary" : {
         "name": "Diary",
@@ -66,6 +88,12 @@ const conversations = {
                 "response": "Hi lol",
                 "options": ["firstMessage", "Hi (dexterity level 5)"],
                 "effect": "check-dexterity-5-firstMessage"
+            },
+            "Failure": {
+                "message": "Failure",
+                "response": "Failure",
+                "options": ["firstMessage", "Hi (dexterity level 5)"],
+                "effect": "failure-Talk to techale"
             },
         }
     },
