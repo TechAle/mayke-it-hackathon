@@ -2,7 +2,7 @@ const karmaCards = {
     "karma1": {
         "name": "First karma",
         "description": "This is the first karma",
-        "icon": "karma1.png",
+        "icon": "karma1.jpeg",
     },
     "karma2": {
         "name": "Second karma",
@@ -11,8 +11,9 @@ const karmaCards = {
     },
 }
 
-let karmaUnlocked = []
+let karmaUnlocked = {}
 
+loadKarmaFromCookies()
 function loadKarmaFromCookies() {
     if (getCookie("karmaUnlocked")) {
         karmaUnlocked = JSON.parse(getCookie("karmaUnlocked"))

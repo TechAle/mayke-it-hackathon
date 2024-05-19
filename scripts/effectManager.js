@@ -190,6 +190,16 @@ function manageEffects(name) {
         case "None":
             break
 
+        case "Print karma cards":
+            /*
+                <div class="message sent">
+                    <img src="images/home/bepp.jpeg" alt="Description of image"/>
+                </div>
+             */
+            setTimeout(function() {
+                showKarma(0)
+            }, 800);
+            break
 
         default:
             if (name.split("-")[0] === "check") {
@@ -276,7 +286,7 @@ function manageEffects(name) {
 
             } else if (name.split("-")[0] === "giveKarma") {
                 const karma = name.split("-")[1]
-                karmaUnlocked.push(karma)
+                karmaUnlocked[karma] = karma
                 // Save in cookie
                 setCookie("karmaUnlocked", JSON.stringify(karmaUnlocked))
             }
@@ -298,6 +308,22 @@ function manageEffects(name) {
                 console.log(name)
     }
     return true
+}
+
+function showKarma(idx) {
+    const keys = Object.keys(karmaUnlocked)
+    if (idx === karmaUnlocked.length) return
+    const karma = karmaCards[keys[idx]]
+    const message =
+        '                    <p>' + karma["name"] + '</p>\n' +
+        '                    <p>' + karma["description"] + '</p>\n' +
+        '                    <img src="images/conversation/' + karma["icon"] + '" alt="Description of image"/>\n';
+    setTimeout(function() {
+        newMessage(message, true)
+        idx = idx + 1
+        if (idx === keys.length) return
+        showKarma(idx)
+    }, 800);
 }
 
 function hasOneDayPassed(date1, date2) {

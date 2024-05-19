@@ -31,39 +31,45 @@ const conversations = {
             "firstMessage": {
                 "message": "Hi",
                 "response": "Hello! What do you want to do today?",
-                "options": ["Check stats", "Check new quests improvement", "Check current quests improvement", "Check new quests story", "Check current quests story"],
+                "options": ["Check stats", "Check new quests improvement", "Check current quests improvement", "Check new quests story", "Check current quests story", "Show karma cards"],
                 "effect": "None"
             },
             "Check stats": {
                 "message": "Check my stats",
                 "response": "Here your stats:",
-                "options": ["Check new quests improvement", "Check current quests improvement", "Check new quests story", "Check current quests story"],
+                "options": ["Check new quests improvement", "Check current quests improvement", "Check new quests story", "Check current quests story", "Show karma cards"],
                 "effect": "Print stats"
             },
             "Check new quests improvement": {
                 "message": "What are some new quests for improvement?",
                 "response": "Here are your new quests:",
-                "options": ["Check current quests improvement", "Check stats", "Check new quests story", "Check current quests story"],
+                "options": ["Check current quests improvement", "Check stats", "Check new quests story", "Check current quests story", "Show karma cards"],
                 "effect": "Print new quests"
             },
             "Check current quests improvement": {
                 "message": "What are the quests for improvements that i have ongoing?",
                 "response": "Here are your current quests:",
-                "options": ["Check new quests improvement", "Check stats", "Check new quests story", "Check current quests story"],
+                "options": ["Check new quests improvement", "Check stats", "Check new quests story", "Check current quests story", "Show karma cards"],
                 "effect": "Print current quests"
             },
             "Check new quests story": {
                 "message": "What are some new story quests?",
                 "response": "Here are your new story quests:",
-                "options": ["Check current quests story", "Check stats", "Check new quests improvement", "Check current quests improvement"],
+                "options": ["Check current quests story", "Check stats", "Check new quests improvement", "Check current quests improvement", "Show karma cards"],
                 "effect": "Print new quests story"
             },
             "Check current quests story": {
                 "message": "What are the story quests that i have ongoing?",
                 "response": "Here are your current story quests:",
-                "options": ["Check new quests story", "Check stats", "Check new quests improvement", "Check current quests improvement"],
+                "options": ["Check new quests story", "Check stats", "Check new quests improvement", "Check current quests improvement", "Show karma cards"],
                 "effect": "Print current quests story"
 
+            },
+            "Show karma cards": {
+                "message": "Show karma cards",
+                "response": "Here are your karma cards:",
+                "options": ["Check stats", "Check new quests improvement", "Check current quests improvement", "Check new quests story", "Check current quests story"],
+                "effect": "Print karma cards"
             }
         }
     },
