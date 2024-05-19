@@ -1,4 +1,5 @@
 let currentChat = null
+let firstMessage = true
 $(document).ready(function () {
     $(document).on('click', '.chatSelector', function() {
         changeConversation($(this).attr('id'))
@@ -28,7 +29,17 @@ function newMessage(input, isReceived) {
     setTimeout(function() {
         const message = buildMessage(input, isReceived);
         $('#chat').append(message);
+        saveHistory(message)
+        firstMessage = false
     }, wait);
+}
+
+function saveHistory(message) {
+    if (history[currentChat].length === 0 || !firstMessage) {
+        history[currentChat].push(message.outerHTML)
+        // Save in cookie history
+        setCookie("history", JSON.stringify(history))
+    }
 }
 
 function buildMessage(text, isReceived = false) {
