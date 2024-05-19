@@ -243,6 +243,9 @@ function manageEffects(name) {
                     conversations[questStory[s[3]]["conversation"]]["messages"][s[4]]["options"].forEach(option => {
                         $("#selectInput").append(`<option value="${option}">${option}</option>`)
                     })
+                    optionsHistory[currentChat] = conversations[questStory[s[3]]["conversation"]]["messages"][s[4]]["options"]
+                    // Save in cookie
+                    setCookie("options", JSON.stringify(optionsHistory))
                 } else {
                     newMessage(s[2], true)
                     // Calculate the difference between now and the cooldown

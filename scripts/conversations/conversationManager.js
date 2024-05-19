@@ -35,7 +35,7 @@ function newMessage(input, isReceived) {
 }
 
 function saveHistory(message) {
-    if (history[currentChat].length === 0 || !firstMessage) {
+    if (history[currentChat].length === 0 || (!firstMessage || message.classList.contains("sent"))) {
         history[currentChat].push(message.outerHTML)
         // Save in cookie history
         setCookie("history", JSON.stringify(history))
@@ -94,20 +94,35 @@ $('#arrow').click(() => {
 function sendMessage(message) {
     const currentChatOptions = conversations[currentChat]["messages"][message]
     if (manageEffects(currentChatOptions["effect"])) {
-    newMessage(currentChatOptions["response"], true)
-    const options = currentChatOptions["options"]
-    $("#selectInput").empty()
-    options.forEach(option => {
-        $("#selectInput").append(`<option value="${option}">${option}</option>`)
-    })
-        }
+        newMessage(currentChatOptions["response"], true)
+        const options = currentChatOptions["options"]
+        $("#selectInput").empty()
+        options.forEach(option => {
+            $("#selectInput").append(`<option value="${option}">${option}</option>`)
+        })
+        optionsHistory[currentChat] = options
+        // Save in cookie options
+        setCookie("options", JSON.stringify(optionsHistory))
+
+    }
 }
 
 let status = ""
 function changeConversation(id) {
     $("#chat").empty()
     currentChat = id
-    sendMessage("firstMessage")
+    if (history[currentChat].length === 0) {
+        sendMessage("firstMessage")
+    } else {
+        for (let i = 0; i < history[currentChat].length; i++) {
+            $("#chat").append(history[currentChat][i])
+        }
+        // And now set the new options
+        $("#selectInput").empty()
+        optionsHistory[currentChat].forEach(option => {
+            $("#selectInput").append(`<option value="${option}">${option}</option>`)
+        })
+    }
     $("#pfp").attr("src", "images/conversation/" + conversations[id]["icon"])
     $("#StatusUser").text(conversations[id]["description"])
     status = conversations[id]["description"]
