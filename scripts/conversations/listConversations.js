@@ -43,7 +43,7 @@ const conversations = {
         "messages": {
             "firstMessage": {
                 "text": "Hi",
-                "options": ["Hi", "Hi but more excited (dexterity level 5 requiresafdshjpafdshjkfadjjafdjfdhjafdhjkfdashjlljhks)", "Hi honey (charisma level 5 requires)"],
+                "options": ["firstMessage", "Hi (dexterity level 5)", "Success", "Failure", "Test"],
                 "effect": "None"
             },
             "Test": {
