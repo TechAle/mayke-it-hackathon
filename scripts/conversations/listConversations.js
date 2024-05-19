@@ -18,6 +18,7 @@
         TODO this should be automatic lol, but for now i dont have time, it should also solve Message tho
     - success-Talk to techale = It sets to success the quest Talk to techale
     - dexterity 35, it gives 35 xp to dexterity, it can be used with any skills
+    - continue-Yes please-No please-Talk to techale-firstMessage = If Talk to techale is off cooldown, yes please, else no please
  */
 
 const conversations = {
@@ -91,9 +92,16 @@ const conversations = {
             },
             "Failure": {
                 "message": "Failure",
-                "response": "Failure",
-                "options": ["firstMessage", "Hi (dexterity level 5)"],
+                "response": "I dont want to talk anymore",
+                "options": ["Can we continue?"],
                 "effect": "failure-Talk to techale"
+            },
+            "Can we continue?": {
+                "message": "Can we continue?",
+                "response": "",
+                "options": ["Can we continue?"],
+                "effect": "continue-Yes please-No please-Talk to techale-firstMessage-Can we continue?",
+                "suggestion": "Maybe try this: lalala"
             },
         }
     },

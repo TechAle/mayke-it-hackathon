@@ -1,6 +1,6 @@
 let startedQuestsStory = []
 let completedQuestsStory = []
-let cooldownQuestsStory = []
+let cooldownQuestsStory = {}
 
 loadQuestsStoryFromCookies()
 function loadQuestsStoryFromCookies() {
@@ -12,5 +12,9 @@ function loadQuestsStoryFromCookies() {
     }
     if (getCookie("cooldownQuestsStory")) {
         cooldownQuestsStory = JSON.parse(getCookie("cooldownQuestsStory"))
+        for(const name in cooldownQuestsStory) {
+            cooldownQuestsStory[name] = new Date(cooldownQuestsStory[name])
+
+        }
     }
 }

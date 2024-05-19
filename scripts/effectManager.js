@@ -192,21 +192,7 @@ function manageEffects(name) {
 
 
         default:
-            if (name.split(" ").length > 1) {
-                if (skills.hasOwnProperty(name.split(" ")[0])) {
-                    const skill = name.split(" ")[0]
-                    const xp = parseInt(name.split(" ")[1])
-                    skills[skill]["xp"] += xp
-                    if (skills[skill]["xp"] >= 100) {
-                        skills[skill]["xp"] -= 100
-                        skills[skill]["lvl"] += 1
-                        setTimeout(function() {
-                            newMessage("Level up! " + skill + " is now level " + skills[skill]["lvl"], true)
-                        }, 800);
-                    }
-                    setCookie("skills", JSON.stringify(skills))
-                }
-            } else if (name.split("-")[0] === "check") {
+            if (name.split("-")[0] === "check") {
                 // check-dexterity-5-firstMessage
                 const toCheck = name.split("-")
                 if (skills.hasOwnProperty(toCheck[1])) {
@@ -220,7 +206,59 @@ function manageEffects(name) {
                     }
                 }
 
-            } else
+            } else if (name.split("-")[0] === "failure") {
+                // failure-Talk to techale
+                cooldownQuestsStory[name.split("-")[1]] = new Date()
+                // Save in cookie
+                setCookie("cooldownQuestsStory", JSON.stringify(cooldownQuestsStory))
+            } else if (name.split("-")[0] === "success") {
+
+            } else if (name.split("-")[0] === "continue"){
+                // continue-Yes please-No please-Talk to techale
+                const s = name.split("-")
+                if (hasOneDayPassed(new Date(), cooldownQuestsStory[s[3]])) {
+                    newMessage(s[1], true)
+                    $("#selectInput").empty()
+                    conversations[questStory[s[3]]["conversation"]]["messages"][s[4]]["options"].forEach(option => {
+                        $("#selectInput").append(`<option value="${option}">${option}</option>`)
+                    })
+                } else {
+                    newMessage(s[2], true)
+                    // Calculate the difference between now and the cooldown
+                    const diff = Math.abs(new Date() - cooldownQuestsStory[s[3]] + 24 * 60 * 60 * 1000)
+                    const minutes = Math.floor((diff/1000)/60)
+                    // hours
+                    const hours = Math.floor(minutes/60)
+                    // Send it in 1 second
+                    setTimeout(function() {
+                        if (hours > 0)
+                            newMessage("Maybe try in " + hours + " hours", false)
+                        else
+                            newMessage("Maybe try in " + minutes + " minutes", false)
+                        // Add cooldown
+                        setTimeout(function() {
+                            newMessage(conversations[questStory[s[3]]["conversation"]]["messages"][s[5]]["suggestion"], false)
+
+                        }, 1000);
+                    }, 1000);
+
+                }
+                return false
+            } else if (name.split(" ").length > 1) {
+                if (skills.hasOwnProperty(name.split(" ")[0])) {
+                    const skill = name.split(" ")[0]
+                    const xp = parseInt(name.split(" ")[1])
+                    skills[skill]["xp"] += xp
+                    if (skills[skill]["xp"] >= 100) {
+                        skills[skill]["xp"] -= 100
+                        skills[skill]["lvl"] += 1
+                        setTimeout(function() {
+                            newMessage("Level up! " + skill + " is now level " + skills[skill]["lvl"], true)
+                        }, 800);
+                    }
+                    setCookie("skills", JSON.stringify(skills))
+                }
+            }  else
                 console.log(name)
     }
     return true
