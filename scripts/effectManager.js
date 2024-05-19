@@ -61,10 +61,10 @@ function manageEffects(name) {
                 '                        <div class="form-group">'
 
             for (let quest in questStory) {
-                if (startedQuestsStory.indexOf(quest) !== -1) continue
+                if (startedQuestsStory.indexOf(quest) !== -1 || completedQuestsStory.indexOf(quest) !== -1) continue
                 const description = questStory[quest]["description"]
                 const reqs = questStory[quest]["requiredQuest"]
-                if (reqs === "" || (completedQuestsStory.hasOwnProperty(reqs))) {
+                if (reqs === "" || (completedQuestsStory.indexOf(reqs) !== -1)) {
 
                     message += '<div class="form-check">\n' +
                         '                                <input class="form-check-input" type="checkbox" value="" id="'+quest+'">\n' +
@@ -212,6 +212,14 @@ function manageEffects(name) {
                 // Save in cookie
                 setCookie("cooldownQuestsStory", JSON.stringify(cooldownQuestsStory))
             } else if (name.split("-")[0] === "success") {
+                // success-Talk to techale
+                completedQuestsStory.push(name.split("-")[1])
+                // Save in cookie
+                setCookie("completedQuestsStory", JSON.stringify(completedQuestsStory))
+                // Remove from startedQuestsStory
+                startedQuestsStory = startedQuestsStory.filter(function(value) {
+                    return value !== name.split("-")[1];
+                });
 
             } else if (name.split("-")[0] === "continue"){
                 // continue-Yes please-No please-Talk to techale

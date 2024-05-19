@@ -103,6 +103,12 @@ const conversations = {
                 "effect": "continue-Yes please-No please-Talk to techale-firstMessage-Can we continue?",
                 "suggestion": "Maybe try this: lalala"
             },
+            "Success": {
+                "message": "Success",
+                "response": "I like talking to you",
+                "options": [],
+                "effect": "success-Talk to techale"
+            }
         }
     },
 
