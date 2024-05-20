@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html, body {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            margin: 0;
+            color: white;
+        }
+
+        body * {
+            position: absolute;
+        }
+
+        #cinematic {
+            height: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #arrow:hover {
+            cursor: pointer;
+        }
+
+        #arrow {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            cursor: pointer;
+            width: 10%;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+</head>
+<body>
+        <img id="cinematic" alt="Image cinematic" src="images/cinematic/1.png">
+        <img id="arrow" src="images/cinematic/whiteArrow.webp" alt="Next">
+    <script>
+        const cinematic = $("#cinematic");
+        let currentImage = 1;
+        const end = 3;
+        $("#arrow").click(function() {
+            currentImage++;
+            if (currentImage > end) {
+                // Finish the cinematic
+            } else {
+                cinematic.attr("src", "images/cinematic/" + currentImage + ".png");
+            }
+        });
+
+    </script>
+
+</body>
+</html>
