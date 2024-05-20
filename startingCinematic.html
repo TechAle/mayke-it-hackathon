@@ -39,12 +39,18 @@
         }
     </style>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="scripts/CookieManager.js"></script>
 
 </head>
 <body>
         <img id="cinematic" alt="Image cinematic" src="images/cinematic/1.png">
         <img id="arrow" src="images/cinematic/whiteArrow.webp" alt="Next">
     <script>
+
+        if (getCookie("tutorial") === "done") {
+            window.location.href = "conversation.html";
+        }
+
         const cinematic = $("#cinematic");
         let currentImage = 1;
         const end = 3;
@@ -52,6 +58,7 @@
             currentImage++;
             if (currentImage > end) {
                 // Finish the cinematic
+                window.location.href = "conversation.html";
             } else {
                 cinematic.attr("src", "images/cinematic/" + currentImage + ".png");
             }
