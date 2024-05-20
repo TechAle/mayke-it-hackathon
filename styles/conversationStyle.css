@@ -1,0 +1,213 @@
+
+#greenDiv {
+    background-color: green;
+    min-width: 200px;
+    max-width: 300px;
+    flex: 1 0 10%;
+    border-right: 1px black solid;
+}
+
+#greenDiv > * {
+    margin-top: 5px;
+}
+
+#redDiv {
+    background-color: red;
+    flex: 5;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.chatSelector:hover, #back:hover, #arrow:hover, img:hover, #closeOverlay:hover {
+    cursor: pointer;
+}
+
+.maxHeight {
+    height: 100vh;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 10px; /* adjust as needed */
+}
+
+#back {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* if you also want to center the text horizontally */
+}
+
+#nameSection {
+    flex-grow: 1;
+    padding-top: 7px;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#headerChat {
+    margin-left: 10px;
+}
+
+#mainBody > * {
+    padding-top: 8px;
+}
+
+#diary {
+    margin-top: 0;
+}
+
+#greenDiv > div > div > img {
+    height: 64px;
+    width: 60px;
+}
+
+.image-text-container {
+    display: flex;
+    align-items: center;
+    height: 80px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.image-text-container img {
+    margin-right: 10px;
+}
+
+#greenDiv > div {
+    margin-left: 0;
+}
+
+#headerChat {
+    height: 10%;
+}
+
+#chat {
+    background-color: yellow;
+    height: 82%;
+    overflow-y: scroll;
+    padding: 10px;
+}
+
+#input {
+    height: 8%;
+    padding-top: 8px;
+    text-align: center;
+}
+
+#input > label {
+    width: 100%;
+}
+
+#selectInput {
+    display: initial !important;
+    width: 80%;
+}
+
+.message {
+    color: #000;
+    clear: both;
+    line-height: 18px;
+    font-size: 15px;
+    padding: 8px;
+    position: relative;
+    margin: 8px 0;
+    max-width: 85%;
+    word-wrap: break-word;
+}
+
+.message:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+.message:first-child {
+    margin: 16px 0 8px;
+}
+
+.message.received {
+    background: #fff;
+    border-radius: 0px 5px 5px 5px;
+    float: left;
+}
+
+
+.message.received .metadata {
+    padding: 0 0 0 16px;
+}
+
+.message.received:after {
+    border-width: 0px 10px 10px 0;
+    border-color: transparent #fff transparent transparent;
+    top: 0;
+    left: -10px;
+}
+
+.message.sent {
+    background: #e1ffc7;
+    border-radius: 5px 0px 5px 5px;
+    float: right;
+}
+
+.message.sent:after {
+    border-width: 0px 0 10px 10px;
+    border-color: transparent transparent transparent #e1ffc7;
+    top: 0;
+    right: -10px;
+}
+
+.message > img {
+    height: 256px;
+    width: auto;
+}
+
+#overlay {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+    display: none;
+}
+
+#overlayPicture {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: fit-content;
+    height: fit-content;
+    z-index: 1;
+}
+
+#closeOverlay {
+    position: absolute;
+    color: white;
+    font-size: 50px;
+    padding: 10px;
+    width: 128px;
+    z-index: 2;
+}
+
+.containerHeader {
+    display: flex;
+    align-items: center;
+}
+
+#back {
+    margin-right: 10px; /* adjust as needed */
+}
+
+@media (max-width: 850px) {
+    #response {
+        display: none;
+    }
+}
+

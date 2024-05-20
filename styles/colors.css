@@ -1,0 +1,17 @@
+:root {
+    --myGreen: #C9DA78;
+    --myLighterGreen: #D1DD97;
+    --myPink: #F27F74;
+}
+
+.pinkBack {
+    background-color: var(--myPink) !important;
+}
+
+.lightGreenBack {
+    background-color: var(--myLighterGreen) !important;
+}
+
+.greenBack {
+    background-color: var(--myGreen) !important;
+}

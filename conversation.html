@@ -8,6 +8,8 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="scripts/conversations/listConversations.js"></script>
+    <link rel="stylesheet" href="styles/colors.css">
+    <link rel="stylesheet" href="styles/conversationStyle.css">
 
     <style>
         #greenDiv {
@@ -15,6 +17,7 @@
             min-width: 200px;
             max-width: 300px;
             flex: 1 0 10%;
+            border-right: 1px black solid;
         }
 
         #greenDiv > * {
@@ -231,9 +234,9 @@
 </div>
 <div class="container-fluid maxHeight">
     <div class="row maxHeight" id="mainBody">
-        <div class="container conversations" id="greenDiv">
+        <div class="container conversations greenBack" id="greenDiv">
         </div>
-        <div id="redDiv">
+        <div id="redDiv" class="greenBack">
             <div id="headerChat">
                 <div class="containerHeader">
                     <div id="back">Back</div>
@@ -246,7 +249,7 @@
                     </div>
                 </div>
             </div>
-            <div id="chat">
+            <div id="chat" class="lightGreenBack">
 
             </div>
             <div id="input">
