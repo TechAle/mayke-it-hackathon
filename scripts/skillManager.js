@@ -1,24 +1,40 @@
 let skills = {
-    "intelligence": {
+    "Physical-wellness": {
         "lvl": 0,
         "xp": 0
     },
-    "strength": {
+    "Sleep-hygiene": {
         "lvl": 0,
         "xp": 0
     },
-    "agility": {
+    "Knowledge": {
         "lvl": 0,
         "xp": 0
     },
-    "charisma": {
+    "Positive-self-image": {
         "lvl": 0,
         "xp": 0
     },
-    "dexterity": {
+    "Emotional-regulation": {
         "lvl": 0,
         "xp": 0
-    }
+    },
+    "Emotional-awareness": {
+        "lvl": 0,
+        "xp": 0
+    },
+    "Awareness": {
+        "lvl": 0,
+        "xp": 0
+    },
+    "Journaling": {
+        "lvl": 0,
+        "xp": 0
+    },
+    "meditation": {
+        "lvl": 0,
+        "xp": 0
+    },
 }
 
 function loadSkillsFromCookies() {
