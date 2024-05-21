@@ -52,7 +52,11 @@ function buildMessage(text, isReceived = false) {
     return element;
 }
 
+let tutorial = ""
 function loadConversations() {
+    if (getCookie("tutorial"))
+        tutorial = getCookie("tutorial")
+
     for(const name in conversations) {
         values = conversations[name]
         // Use appendchild to add the image and text
@@ -72,14 +76,14 @@ function loadConversations() {
         chatSelector.appendChild(imageTextContainer)
 
 
-        if (values["default"] === true) {
+        if ((values["default"] === true && tutorial === "done") || (tutorial !== "done" && name==="Tutorial")) {
             $("#greenDiv")[0].appendChild(chatSelector)
             changeConversation(name)
         } else {
             // hide the chat selector
-            if (!startedQuestsStory.includes(conversationUnlock[name]) && !completedQuestsStory.includes(conversationUnlock[name])){
-            chatSelector.style.display = "none"
-                }
+            if (!startedQuestsStory.includes(conversationUnlock[name]) && !completedQuestsStory.includes(conversationUnlock[name]) && name !== "Tutorial") {
+                chatSelector.style.display = "none"
+            }
             $("#greenDiv")[0].appendChild(chatSelector)
         }
 

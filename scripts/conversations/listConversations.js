@@ -136,10 +136,10 @@ const conversations = {
         }
     },
 
-    "Test" : {
-        "name": "Test",
-        "description": "A test conversation",
-        "icon": "test.png",
+    "Tutorial" : {
+        "name": "Tutorial",
+        "description": "A tutorial",
+        "icon": "techale.png",
         "messages": {
             "firstMessage": {
                 "response": "Test",
