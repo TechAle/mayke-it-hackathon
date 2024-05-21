@@ -31,7 +31,7 @@ let skills = {
         "lvl": 0,
         "xp": 0
     },
-    "meditation": {
+    "Meditation": {
         "lvl": 0,
         "xp": 0
     },

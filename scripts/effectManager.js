@@ -180,7 +180,7 @@ function manageEffects(name) {
                     newMessage("No quests active", true)
                     toSend = false
                 }
-                if (toSend) {
+                if (toSend && bodyMessage) {
                     setTimeout(function() {
                         if (newMessageSend)
                             newMessage(newMessageSend, true)
