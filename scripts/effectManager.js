@@ -92,26 +92,68 @@ function manageEffects(name) {
             message = '<form onsubmit="onForm(event, \'completedQuests\')" class="formSubmit">\n' +
                 '                        <div class="form-group">'
 
+            let bodyMessage = ""
             for (let quest in startedQuestsPersonal) {
                 quest = startedQuestsPersonal[quest]
                 const description = questsPersonal[quest]["description"]
-                message += '<div class="form-check">\n' +
-                    '                                <input class="form-check-input" type="checkbox" value="" id="'+quest+'">\n' +
-                    '                                <label class="form-check-label" for="quest3">\n' +
-                    '                                    '+quest+': '+description+'\n' +
-                    '                                </label>\n' +
-                    '                            </div>'
-
+                const type = questsPersonal[quest]["type"]
+                if (type === "bool") {
+                    bodyMessage += '<div class="form-check">\n' +
+                        '                                <input class="form-check-input" type="checkbox" value="" id="' + quest + '">\n' +
+                        '                                <label class="form-check-label" for="quest3">\n' +
+                        '                                    ' + quest + ': ' + description + '\n' +
+                        '                                </label>\n' +
+                        '                            </div>'
                 }
 
+            }
 
-            message += '</div>\n' +
-                '                        <button type="submit" class="btn btn-primary">Mark as completed</button>\n' +
-                '                    </form>'
+            if (bodyMessage !== "") {
+                message += bodyMessage
+                message += '</div>\n' +
+                    '                        <button type="submit" class="btn btn-primary">Mark as completed</button>\n' +
+                    '                    </form>'
+
+            } else {
+                message = ""
+            }
+
+            let newMessageSend = '<form onsubmit="onForm(event, \'completedQuests\')" class="formSubmit">\n' +
+                '                        <div class="form-group">'
+
+            bodyMessage = ""
+
+            for (let quest in startedQuestsPersonal) {
+                quest = startedQuestsPersonal[quest]
+                const description = questsPersonal[quest]["description"]
+                const type = questsPersonal[quest]["type"]
+                if (type === "text") {
+                    bodyMessage += '<div class="form-check">\n' +
+                        '                                <label class="form-check-label" for="quest3">\n' +
+                        '                                    ' + quest + ': ' + description + '\n' + '<span class="btn btn-primary startTyping">start typing!</span>' +
+                        '                                </label>\n' +
+                        '                            </div>'
+                }
+            }
+
+            if (bodyMessage !== "") {
+                newMessageSend += bodyMessage
+                newMessageSend += '</div>\n' +
+                    '                    </form>'
+            }
+
+
+
 
             setTimeout(function() {
                 newMessage(message, true)
+                setTimeout(function() {
+                    newMessage(newMessageSend, true)
+                }, 2000);
             }, 1000);
+
+
+
             break
 
         case "Print current quests story":
@@ -313,6 +355,37 @@ function manageEffects(name) {
     return true
 }
 
+function sendQuestInput(bodyMessage) {
+    // Input messages
+    let message2 = '<form onsubmit="onForm(event, \'completedQuests\')" class="formSubmit">\n' +
+        '                        <div class="form-group">'
+
+    let bodyMessage2 = ""
+    for (let quest in startedQuestsPersonal) {
+        quest = startedQuestsPersonal[quest]
+        const description = questsPersonal[quest]["description"]
+        const type = questsPersonal[quest]["type"]
+        if (type === "text") {
+            bodyMessage2 += '<div class="form-check">\n' +
+                '                                <input class="form-check-input" type="checkbox" value="" id="' + quest + '">\n' +
+                '                                <label class="form-check-label" for="quest3">\n' +
+                '                                    ' + quest + ': ' + description + '\n' +
+                '                                </label>\n' +
+                '                            </div>'
+        }
+
+    }
+
+    if (bodyMessage2 !== "") {
+        message2 += bodyMessage
+        message2 += '</div>\n' +
+            '                    </form>'
+        setTimeout(function() {
+            newMessage(message2, true)
+        }, 1000);
+    }
+}
+
 function showKarma(idx) {
     const keys = Object.keys(karmaUnlocked)
     if (idx === karmaUnlocked.length) return
@@ -335,3 +408,7 @@ function hasOneDayPassed(date1, date2) {
 
     return differenceInMilliseconds >= oneDayInMilliseconds;
 }
+
+$(document).on('click', '.startTyping', function() {
+    $('#inputModal').modal('show');
+})
