@@ -49,7 +49,7 @@
         <img id="arrow" src="images/cinematic/whiteArrow.webp" alt="Next">
     <script>
 
-        if (getCookie("tutorial") === "done") {
+        if (getCookie("tutorialCinematic") === "done") {
             window.location.href = "conversation.html";
         }
 
@@ -60,6 +60,7 @@
             currentImage++;
             if (currentImage > end) {
                 // Finish the cinematic
+                setCookie("tutorialCinematic", "done");
                 window.location.href = "conversation.html";
             } else {
                 cinematic.attr("src", "images/cinematic/" + currentImage + ".png");
@@ -68,7 +69,7 @@
 
     </script>
 
-        <audio controls autoplay>
+        <audio id="background-music" autoplay>
             <source src="background.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
