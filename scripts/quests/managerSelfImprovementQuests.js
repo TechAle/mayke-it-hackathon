@@ -97,37 +97,37 @@ const questsPersonal = {
     },
     "Resource Reflections Lvl1": {
         "description": "Write reflections you’ve had after reading 1 resource",
-        "type": "bool",
+        "type": "text",
         "requiredQuest": "",
         "reward": ["Knowledge 10"]
     },
     "Resource Reflections Lvl5": {
         "description": "Write reflections you’ve had after reading 3 resources",
-        "type": "bool",
+        "type": "text",
         "requiredQuest": "Resource Reflections Lvl1",
         "reward": ["Knowledge 25"]
     },
     "Resource Reflections Lvl10": {
         "description": "Write down 5+ things you’ve learnt from resources and how it’s helped you",
-        "type": "bool",
+        "type": "text",
         "requiredQuest": "Resource Reflections Lvl5",
         "reward": ["Knowledge 50"]
     },
     "Positive Journaling Lvl1": {
         "description": "Journal using 1 prompt that cultivates a positive self image for 5 mins",
-        "type": "bool",
+        "type": "text",
         "requiredQuest": "",
         "reward": ["Positive-self-image 10", "Journaling 25"]
     },
     "Positive Journaling Lvl5": {
         "description": "Journal using 2 prompts that cultivate a positive self image for 5 mins each",
-        "type": "bool",
+        "type": "text",
         "requiredQuest": "Positive Journaling Lvl1",
         "reward": ["Positive-self-image 25", "Journaling 50"]
     },
     "Positive Journaling Lvl10": {
         "description": "Journal using 2+ prompts that cultivate a positive self image for 20+ mins in total",
-        "type": "bool",
+        "type": "text",
         "requiredQuest": "Positive Journaling Lvl5",
         "reward": ["Positive-self-image 50", "Journaling 75"]
     },
@@ -157,7 +157,7 @@ const questsPersonal = {
     },
     "Identify Negative Emotions Lvl5": {
         "description": "Write down a scenario where you can practice radical acceptance",
-        "type": "bool",
+        "type": "text",
         "requiredQuest": "Identify Negative Emotions Lvl1",
         "reward": ["Emotional-regulation 25"]
     },
@@ -247,37 +247,37 @@ const questsPersonal = {
     },
     "Karma Cards Lvl1": {
         "description": "Look at your Karma cards and write about one change you can make to improve them",
-        "type": "bool",
+        "type": "text",
         "requiredQuest": "",
         "reward": ["Awareness 15"]
     },
     "Karma Cards Lvl5": {
         "description": "Look at your Karma cards and write what you already do that helps you have good karma cards and what can you do to reduce bad ones",
-        "type": "bool",
+        "type": "text",
         "requiredQuest": "Karma Cards Lvl1",
         "reward": ["Awareness 25"]
     },
     "Karma Cards Lvl10": {
         "description": "Write about what you do to have mostly good karma cards",
-        "type": "bool",
+        "type": "text",
         "requiredQuest": "Karma Cards Lvl5",
         "reward": ["Awareness 50"]
     },
     "Bad Habit Analysis Lvl1": {
         "description": "Think of the most important/annoying/limiting bad habit that you have. What are the 5 cons and the 5 pros of the habit?",
-        "type": "bool",
+        "type": "text",
         "requiredQuest": "",
         "reward": ["Awareness 10"]
     },
     "Bad Habit Analysis Lvl5": {
         "description": "Think of one bad habit you have and play out what would happen if you engage in it",
-        "type": "bool",
+        "type": "text",
         "requiredQuest": "Bad Habit Analysis Lvl1",
         "reward": ["Awareness 25"]
     },
     "Bad Habit Analysis Lvl10": {
         "description": "Write about your core values and which actions you can do if you slip back into an old habit",
-        "type": "bool",
+        "type": "text",
         "requiredQuest": "Bad Habit Analysis Lvl5",
         "reward": ["Awareness 50"]
     },
