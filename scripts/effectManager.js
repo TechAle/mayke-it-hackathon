@@ -6,7 +6,33 @@ function onForm(event, name) {
 function manageEffects(name) {
     let message = ""
     let before = false
+    let reward = ""
     switch (name) {
+
+        case "stringInput":
+            const id = $("#inputModalLabel").text()
+            // Hide modal
+            $('#inputModal').modal('hide');
+            // Set complete quest
+            completedQuestsPersonal[id] = new Date()
+            // And delete from startedQuestsPersonal
+            startedQuestsPersonal = startedQuestsPersonal.filter(function(value) {
+                return value !== id;
+            });
+            for(const r in questsPersonal[id]["reward"]) {
+                if (reward === "") reward += "Reward: "
+                reward += questsPersonal[id]["reward"][r] + " "
+                manageEffects(questsPersonal[id]["reward"][r])
+            }
+            // Save completedQuestsPersonal
+            setCookie("completedQuestsPersonal", JSON.stringify(completedQuestsPersonal))
+            // Save startedQuestsPersonal
+            setCookie("startedQuestsPersonal", JSON.stringify(startedQuestsPersonal))
+            setTimeout(function() {
+                newMessage(reward, true)
+            }, 800);
+            $("[quest='"+id+"']").replaceWith("<p>Quests completed!</p>")
+            break
 
         case "Print stats":
             message = ""
@@ -129,7 +155,7 @@ function manageEffects(name) {
                 const type = questsPersonal[quest]["type"]
                 if (type === "text") {
                     bodyMessage += '<div class="form-check">\n' +
-                        '                                <label class="form-check-label" for="quest3">\n' +
+                        '                                <label class="form-check-label" for="quest3" quest="'+quest+'">\n' +
                         '                                    ' + quest + ': ' + description + '\n' + '<span class="btn btn-primary startTyping">start typing!</span>' +
                         '                                </label>\n' +
                         '                            </div>'
@@ -146,10 +172,21 @@ function manageEffects(name) {
 
 
             setTimeout(function() {
-                newMessage(message, true)
-                setTimeout(function() {
-                    newMessage(newMessageSend, true)
-                }, 2000);
+                let toSend = true
+                if (message) {
+                    newMessage(message, true)
+                }
+                else if (!message && !bodyMessage) {
+                    newMessage("No quests active", true)
+                    toSend = false
+                }
+                if (toSend) {
+                    setTimeout(function() {
+                        if (newMessageSend)
+                            newMessage(newMessageSend, true)
+                    }, 2000);
+                }
+
             }, 1000);
 
 
@@ -184,7 +221,6 @@ function manageEffects(name) {
             break
 
         case "completedQuests":
-            let reward = ""
             $('.form-check-input:checked').each(function() {
                 let id = $(this).attr('id')
                 completedQuestsPersonal[id] = new Date()
@@ -410,5 +446,8 @@ function hasOneDayPassed(date1, date2) {
 }
 
 $(document).on('click', '.startTyping', function() {
+    const things = event.target.parentElement.textContent.trim().split("\n")[0].split(":")
+    $("#inputModalLabel").text(things[0])
+    $("#iField").text(things[1])
     $('#inputModal').modal('show');
 })
