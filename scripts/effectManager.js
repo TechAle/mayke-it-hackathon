@@ -7,7 +7,10 @@ function manageEffects(name) {
     let message = ""
     let before = false
     let reward = ""
+    if (name === undefined)
+        name = ""
     switch (name) {
+
 
         case "stringInput":
             const id = $("#inputModalLabel").text()
@@ -195,7 +198,7 @@ function manageEffects(name) {
 
         case "unlockDiary":
             setCookie("tutorial", "done")
-            $("#diary").css("display", "initial")
+            $("#diary").css("display", "flex")
             break
 
         case "Print current quests story":
@@ -263,13 +266,14 @@ function manageEffects(name) {
             $('.form-check-input:checked').each(function() {
                 startedQuestsStory.push($(this).attr('id'));
                 // Show the conversation with id
-                $("#" + questStory[$(this).attr('id')]["conversation"])[0].style.display = "initial"
+                $("#" + questStory[$(this).attr('id')]["conversation"])[0].style.display = "flex"
             });
             $(".formSubmit").replaceWith("<p>Quests accepted!</p>")
             // Save startedQuestsPersonal
             setCookie("startedQuestsStory", JSON.stringify(startedQuestsStory))
             break
 
+        case "":
         case "None":
             break
 
@@ -375,6 +379,13 @@ function manageEffects(name) {
                 karmaUnlocked[karma] = karma
                 // Save in cookie
                 setCookie("karmaUnlocked", JSON.stringify(karmaUnlocked))
+            }
+            else if (name.split("-")[0] === "startQuest") {
+                const quest = name.split("-")[1]
+                startedQuestsPersonal.push(quest)
+                // Save startedQuestsPersonal
+                setCookie("startedQuestsPersonal", JSON.stringify(startedQuestsPersonal))
+                $("#" + questStory[quest]["conversation"])[0].style.display = "flex"
             }
             else if (name.split(" ").length > 1) {
                 if (skills.hasOwnProperty(name.split(" ")[0])) {

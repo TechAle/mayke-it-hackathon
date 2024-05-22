@@ -21,6 +21,7 @@
     - continue-Yes please-No please-Talk to techale-firstMessage = If Talk to techale is off cooldown, yes please, else no please
  */
 
+// noinspection BadExpressionStatementJS
 const conversations = {
     "diary" : {
         "name": "Diary",
@@ -74,6 +75,216 @@ const conversations = {
         }
     },
 
+    "Goldie-Mani-Quest": {
+        "name": "Goldie",
+        "description": "Goldie may help you with Mani",
+        "icon": "techale.png",
+        "messages": {
+            "firstMessage": {
+                "response": "Hello Detective! Do you need help?",
+                "options": ["Check out this assignment... Send ss", "Heard about WolvesCo", "babaganoosh"],
+                "effect": "None"
+            },
+            "babaganoosh": {
+                "response": "Babaganoosh!!11!!!!1!!1!!!!1!!1111",
+                "options": ["Check out this assignment... Send ss", "Heard about WolvesCo"],
+                "effect": "None"
+            },
+            "Check out this assignment... Send ss": {
+                "response": "Oh. Mani. I see she found someone at last. Good! Maybe you’ll knock\n" +
+                    "some scene into her.",
+                "options": ["What do you mean?"],
+                "effect": ""
+            },
+            "Heard about WolvesCo": {
+                "response": "Yes, Orange one is my favorite!",
+                "options": ["Do you just like how it matches your fur?", "babaganoosh", "Check out this assignment... Send ss"],
+                "effect": ""
+            },
+            "Do you just like how it matches your fur?": {
+              "response": "I am afraid, my dear Catson, that most of your conclusions were erroneous. Orange soda is like drinking liquid sunshine. it’s my go-to mood booster. Who needs therapy when you have orange soda?",
+              "options": ["babaganoosh", "Check out this assignment... Send ss"],
+              "effect": ""
+            },
+            "What do you mean?": {
+                "response": "She really took doom scrolling to a new level. Mani shares about 30\n" +
+                    "TubeYube shorts in our town’s discussion board... Per DAY. She keeps saying it’s for public safety, but I think she’s just watching bad news for the sake of bad news. Mayor Rooner is SO close to perma-banning her!",
+                "options": ["What exactly is doom scrolling?", "TubeYube shorts?"],
+                "effect": ""
+            },
+            "What exactly is doom scrolling?": {
+                "response": "When people get hooked on scrolling through negative news and\n" +
+                    "content. It makes some people feel really down, but they keep going at it anyway.",
+                "options": ["Interesting. So, are these TubeYubers taking advantage of that?", "TubeYube shorts?"],
+                "effect": ""
+            },
+            "TubeYube shorts?": {
+                "response": "Yeah, they’re addicting. I heard they are very profitable too! Although I still can’t figure out why my squirrel-watching shorts get no views...",
+                "options": ["Have you tried asking one of the TubeYubers?", "What exactly is doom scrolling?"],
+                "effect": ""
+            },
+            "Interesting. So, are these TubeYubers taking advantage of that?": {
+                "response": "That’s for you to find out!",
+                "options": ["TubeYube shorts?", "Thanks for the informations!"],
+                "effect": ""
+            },
+            "Have you tried asking one of the TubeYubers?": {
+                "response": "I have... But my comments never get enough likes for their QnA!",
+                "options": ["What exactly is doom scrolling?", "Thanks for the informations!"],
+                "effect": ""
+            },
+            "Thanks for the informations!": {
+                "response": "GASP!!! An Undercover Mission!!! Good thinking. They’ll reveal their view-mining strategies without even realizing it!!! Surely they’ll pick my Q’s for them A’s if YOU pretend to be a big influencer!",
+                "options": ["I was going to email them about doom scrolling for Mani. Rings a bell?"],
+                "effect": ""
+            },
+            "I was going to email them about doom scrolling for Mani. Rings a bell?": {
+                "response": "Yeah, that too. Sure.",
+                "options": ["... Are we doing this?"],
+                "effect": ""
+            },
+            "... Are we doing this?": {
+                "response": "Wait a minute...",
+                "options": ["Ok (and wait a minute)"],
+                "effect": ""
+            },
+            "Ok (and wait a minute)": {
+                "response": "Alrighty! I prepared everything for your mission. All you have to do now is text TybeYuber HopDay. Just be careful, if she realizes you’re investigating, she will ghost you...",
+                "options": ["Wait, How do you know she'll ghost me?", "Is that my baby picture?..."],
+                "effect": ""
+            },
+            "Wait, How do you know she'll ghost me?": {
+                "response": "I might have tried pulling this mission a few times before... heh But this time is different! HopDay commented on one of the videos, and now it's your move, detective!",
+                "options": ["A lot can still go wrong. Undercover missions are tricky.", "Is that my baby picture?..."],
+                "effect": ""
+            },
+            "A lot can still go wrong. Undercover missions are tricky.": {
+                "response": "I believe in you! Go gettem, tiger!",
+                "options": ["Alrighty then, let's get this over with.", "Is that my baby picture?..."],
+                "effect": ""
+            },
+            "Is that my baby picture?...": {
+                "response": "Your new icon? Do you like it? I had to dig deep for it. Good thing\n" +
+                    "I’m a dog of persistence ;)",
+                "options": ["Why me..?", "Wait, How do you know she'll ghost me?"],
+                "effect": ""
+            },
+            "Why me..?": {
+                "response": "Listen, I couldn’t fake ALL the followers, so I had to get SOME real\n" +
+                    "ones. The internet loves cats, what can ya do...",
+                "options": ["Wait, How do you know she'll ghost me?", "Alrighty then, let's get this over with."],
+                "effect": ""
+            },
+            "Alrighty then, let's get this over with.": {
+                "response": "Good Luck, Kit-Cat!",
+                "options": [],
+                "effect": "success-Mani2"
+            }
+        }
+    },
+
+    "Mani-Jewel-Start" : {
+        "name": "Mani Jewel",
+        "description": "Mani Jewel needs your help",
+        "icon": "techale.png",
+        "messages": {
+            "firstMessage": {
+                "response": "Hello Catective <br>My name is Mani Jewel. I’m a junior at Gnomes Borough College. Detective, I need your help. I’ve been scrolling through all this news about the Wolves Corporation—they’re out to get me, I just know it. The more I read, the more I feel I’m missing something important. I need to know everything they’re up to, but it’s overwhelming. Can you help me find out what’s really going on?",
+                "options": ["Wolves Co?", "Do you have any evidence?", "I’m on it, Miss Jewel"],
+                "effect": "None"
+            },
+            "Wolves Co?": {
+                "response": "The energy drink company. Their energy drinks are everywhere, and" +
+                    "I’m convinced there’s something dangerous they’re hiding. And due" +
+                    "to recent events... I think they are on to me!",
+                "options": ["Do you have any evidence?", "I'm on it, Miss Jewel", "I see. Which events would that be?"],
+                "effect": "None"
+            },
+            "I see. Which events would that be?": {
+                "response": "I’m glad you asked, Detective! Take a look at this.\n" +
+                    "out for info.\n" +
+                    "Sends ss of her emails... top reads “You need more storage” My phone keeps glitching, my emails are a mess, and it’s been like that ever since I started looking into the Wolves Corporation. But it’s not just the tech stuff—it’s the bizarre events too. My\n" +
+                    "cousin Timmy lost his job and his house got broken into last week, and then there’s that frog rain that happened on Thursday. So many frogs ripped from their homes... It’s too much to ignore.\n" +
+                    "Think about it. The Wolves Corporation's has been expanding its market aggressively. They engineered that frog rain to create chaos and distract us from their shady business! With their resources, it’s not impossible. I just need your help to dig deeper and find the truth.",
+                "options": ["Do you have any evidence?", "I'm on it, Miss Jewel"],
+                "effect": "None"
+            },
+            "Do you have any evidence?": {
+                "response": "I have plenty!\n" +
+                    "<i>Mani spams fake links to shorts and images of wolves.</i>",
+                "options": ["I'm on it, Miss Jewel", "Wolves Co?", "That is... A lot of wolves."],
+                "effect": "None"
+            },
+            "That is... A lot of wolves.": {
+                "response": "Vicious wolves. Hope it helps.",
+                "options": ["Wolves Co?", "I'm on it, Miss Jewel"],
+                "effect": "None"
+            },
+            "I'm on it, Miss Jewel": {
+                "response": "Thank you so much, detective! I am mighty grateful! Let me know if\n" +
+                    "you need anything from me. I am always watching<br><i><b>She is hiding something</b></i><br><i>Note: in one of your options there is written (Awareness 5), that means that only if your level of Awareness is 5 or higher you can choose that option</i>",
+                "options": ["What accounts do you follow? (Awareness 5)", "What does your security system look like?", "Is there anything else I need to know?"],
+                "effect": ""
+            },
+            "What accounts do you follow? (Awareness 5)" : {
+                "response": "Oh you know, Daily Horoscopes and DoomBunni, BinniBunni, and HopDie. I mean HopDay! She rebranded...<br><i>(Companies know their target...)</i>",
+                "options": ["What does your security system look like?", "Is there anything else I need to know?"],
+                "effect": ""
+            },
+            "What does your security system look like?" : {
+                "response": "Just my own two eyes, detective. I’m always watching threats. for potential",
+                "options": ["If you're worried, I recommend my friend, Guy, she makes strong locks.", "What accounts do you follow? (Awareness 5)", "Is there anything else I need to know?"],
+                "effect": ""
+            },
+            "If you're worried, I recommend my friend, Guy, she makes strong locks.": {
+                "response": "Oh... Locks are not something I can find a use for.",
+                "options": ["What do you mean?", "What accounts do you follow? (Awareness 5)", "What does your security system look like?"],
+            },
+            "What do you mean?": {
+                "response": "It’s not as bad as it sounds, I just got rid of my door.", // ????
+                "options": ["... You got rid of your door?", "Do you need help installing it back up?", "HUH?"],
+                "effect": ""
+            },
+            "HUH?": {
+                "response": "Yeah so, please don’t freak out, you’re the only person\n" +
+                    "left in this town that is willing to help me... You’re kind of my last hope.",
+                "options": ["Okay...", "I'm not 'freaking out' because you don't have a door. Admittedly, it is bizarre, though that won't interfere with my investigation."],
+                "effect": ""
+            },
+            "Okay...": {
+                "response": "So...",
+                "options": ["What accounts do you follow? (Awareness 5)", "What does your security system look like?", "Is there anything else I need to know?"],
+                "effect": ""
+            },
+            "... You got rid of your door?": {
+                "response": "Yeah so, please don’t freak out, you’re the only person\n" +
+                    "left in this town that is willing to help me... You’re kind of my last hope.",
+                "options": ["Okay...", "I'm not 'freaking out' because you don't have a door. Admittedly, it is bizarre, though that won't interfere with my investigation."],
+                "effect": ""
+            },
+            "Do you need help installing it back up?": {
+                "response": "That's a relief!",
+                "options": ["Okay..."],
+                "effect": ""
+            },
+            "I'm not 'freaking out' because you don't have a door. Admittedly, it is bizarre, though that won't interfere with my investigation.": {
+                "response": "That's a relief!",
+                "options": ["What accounts do you follow? (Awareness 5)", "What does your security system look like?", "Is there anything else I need to know?"],
+                "effect": ""
+            },
+            "Is there anything else I need to know?": {
+                "response": "Not much, just that I’m counting on you detective. I sense they will come for me any day now. I don’t have enough information, I need to know more. When will they come? How many? How should I prepare? There are still so many unknown factors. Please Hurry...<br><i>(It sounds as if she is expecting guests...)</i>",
+                "options": ["I will do my best to aid you, Ms. Jewel."],
+                "effect": ""
+            },
+            "I will do my best to aid you, Ms. Jewel.": {
+                "response": "You're the only one who’s left who believes in what I’m going through right now... I have to say... It means a lot. Thank you...",
+                "options": [""],
+                "effect": "success-Mani1"
+            },
+        }
+    },
+    
     "Tutorial" : {
         "name": "Goldie",
         "description": "A tutorial",

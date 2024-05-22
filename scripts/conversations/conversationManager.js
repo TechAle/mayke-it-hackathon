@@ -31,11 +31,17 @@ function newMessage(input, isReceived) {
         $('#chat').append(message);
         saveHistory(message)
         firstMessage = false
+        let divElement = document.getElementById('chat');
+        divElement.scrollTop = divElement.scrollHeight;
     }, wait);
 }
 
 function saveHistory(message) {
     if (history[currentChat].length === 0 || (!firstMessage || message.classList.contains("sent"))) {
+        // Decrease the length of history[currentChat] to 4 by removing the first elements
+        while (history[currentChat].length >= 4) {
+            history[currentChat].shift()
+        }
         history[currentChat].push(message.outerHTML)
         // Save in cookie history
         setCookie("history", JSON.stringify(history))
@@ -127,8 +133,6 @@ function changeConversation(id) {
             $("#selectInput").append(`<option value="${option}">${option}</option>`)
         })
         // Scroll all the way down
-        let divElement = document.getElementById('chat');
-        divElement.scrollTop = divElement.scrollHeight;
 
     }
     $("#pfp").attr("src", "images/conversation/" + conversations[id]["icon"])

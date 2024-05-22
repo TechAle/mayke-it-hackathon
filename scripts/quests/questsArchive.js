@@ -1,21 +1,15 @@
 const questStory = {
-    "Talk to techale": {
-        "description": "Techale needs your help with stuff",
+    "Mani1": {
+        "description": "Mani Jewel has been stuck on his phone for hours and hours. She needs your help managing this!",
         "requiredQuest": "",
-        "reward": ["dexterity 35"],
-        "conversation": "TechAle1"
+        "reward": [""],
+        "conversation": "Mani-Jewel-Start"
     },
-    "Brainstorm with techale": {
-        "description": "Lol yeha idk",
-        "requiredQuest": "Talk to techale",
-        "reward": ["dexterity 80", "strength 20"],
-        "conversation": "TechAle2"
-    },
-    "Test": {
-        "description": "Test",
-        "requiredQuest": "",
-        "reward": [],
-        "conversation": "Test"
+    "Mani2": {
+        "description": "Mani Jewel has been stuck on his phone for hours and hours. Maybe Goldie can help you with this!",
+        "requiredQuest": "Mani1",
+        "reward": [""],
+        "conversation": "Goldie-Mani-Quest"
     }
 }
 
