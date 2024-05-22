@@ -417,8 +417,20 @@ function manageEffects(name) {
                         levelUp = true
                     }
 
+
                     setTimeout(function() {
-                        newMessage("Level up! " + skill + " is now level " + skills[skill]["lvl"], true)
+                        if (levelUp) {
+                            newMessage("Level up! " + skill + " is now level " + skills[skill]["lvl"], true)
+                            if (skills[skill]["lvl"] >= 7 && karmaCards[skill] !== undefined && karmaUnlocked[karmaCards[skill]] === undefined) {
+                                setTimeout(function() {
+                                    newMessage("You have unlocked a new karma card! " + karmaCards[skill]["name"], true)
+                                    manageEffects("giveKarma-" + karmaCards[skill]["name"])
+                                    setTimeout(function() {
+                                        newMessage('<img src="images/conversation/' + karmaCards[skill]["icon"] + '" alt="Description of image"/>', true)
+                                    }, 800);
+                                }, 800);
+                            }
+                        }
                     }, 800);
                     setCookie("skills", JSON.stringify(skills))
                 }
@@ -460,7 +472,7 @@ function sendQuestInput(bodyMessage) {
 }
 
 function showKarma(idx) {
-    if (karmaUnlocked.length === undefined) {
+    if (Object.keys(karmaUnlocked).length === 0) {
         newMessage("No karma unlocked", true)
         return
     }
