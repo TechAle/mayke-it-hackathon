@@ -390,7 +390,7 @@ const conversations = {
             "What accounts do you follow? (Awareness 5)" : {
                 "response": "Oh you know, Daily Horoscopes and DoomBunni, BinniBunni, and HopDie. I mean HopDay! She rebranded...<br><i>(Companies know their target...)</i>",
                 "options": ["What does your security system look like?", "Is there anything else I need to know?"],
-                "effect": ""
+                "effect": "check-Awareness-5-I'm on it, Miss Jewel"
             },
             "What does your security system look like?" : {
                 "response": "Just my own two eyes, detective. I’m always watching threats. for potential",

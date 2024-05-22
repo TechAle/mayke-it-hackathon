@@ -20,6 +20,8 @@ $(document).ready(function () {
 
 
 function newMessage(input, isReceived) {
+    if (input === "")
+        return
     let wait = 0
     if (isReceived) {
         wait = 750

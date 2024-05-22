@@ -56,19 +56,22 @@ function manageEffects(name) {
 
             message = '<form onsubmit="onForm(event, \'startPersonalQuests\')" class="formSubmit">\n' +
                 '                        <div class="form-group">'
+            let addedSomethinf  = false
 
             for (let quest in questsPersonal) {
                 if (startedQuestsPersonal.indexOf(quest) !== -1) continue
                 const description = questsPersonal[quest]["description"]
                 const reqs = questsPersonal[quest]["requiredQuest"]
                 if (reqs === "" || (completedQuestsPersonal.hasOwnProperty(reqs))) {
-                    if (!completedQuestsPersonal.hasOwnProperty(quest) || hasOneDayPassed(new Date(), completedQuestsPersonal[quest]))
+                    if (!completedQuestsPersonal.hasOwnProperty(quest) || hasOneDayPassed(new Date(), completedQuestsPersonal[quest])) {
+                        addedSomethinf = true
                         message += '<div class="form-check">\n' +
-                            '                                <input class="form-check-input" type="checkbox" value="" id="'+quest+'">\n' +
+                            '                                <input class="form-check-input" type="checkbox" value="" id="' + quest + '">\n' +
                             '                                <label class="form-check-label" for="quest3">\n' +
-                            '                                    '+quest+': '+description+'\n' +
+                            '                                    ' + quest + ': ' + description + '\n' +
                             '                                </label>\n' +
                             '                            </div>'
+                    }
 
                 }
             }
@@ -78,7 +81,11 @@ function manageEffects(name) {
                 '                    </form>'
 
             setTimeout(function() {
-                newMessage(message, true)
+                if (addedSomethinf) {
+                    newMessage(message, true)
+                } else {
+                    newMessage("No quests available", true)
+                }
             }, 1000);
             break
 
@@ -88,13 +95,14 @@ function manageEffects(name) {
 
             message = '<form onsubmit="onForm(event, \'startStoryQuests\')" class="formSubmit">\n' +
                 '                        <div class="form-group">'
+            let addedSomething = false;
 
             for (let quest in questStory) {
                 if (startedQuestsStory.indexOf(quest) !== -1 || completedQuestsStory.indexOf(quest) !== -1) continue
                 const description = questStory[quest]["description"]
                 const reqs = questStory[quest]["requiredQuest"]
                 if (reqs === "" || (completedQuestsStory.indexOf(reqs) !== -1)) {
-
+                    addedSomething = true;
                     message += '<div class="form-check">\n' +
                         '                                <input class="form-check-input" type="checkbox" value="" id="'+quest+'">\n' +
                         '                                <label class="form-check-label" for="quest3">\n' +
@@ -110,7 +118,11 @@ function manageEffects(name) {
                 '                    </form>'
 
             setTimeout(function() {
-                newMessage(message, true)
+                if (addedSomething) {
+                    newMessage(message, true)
+                } else {
+                    newMessage("No quests available", true)
+                }
             }, 1000);
             break
 
@@ -207,10 +219,12 @@ function manageEffects(name) {
 
             message = '<form onsubmit="onForm(event, \'completedQuests\')" class="formSubmit">\n' +
                 '                        <div class="form-group">'
+            let addedSomethint = false;
 
             for (let quest in startedQuestsStory) {
                 let questNow = questStory[startedQuestsStory[quest]]
                 const description = questNow["description"]
+                addedSomethint = true;
                 message += '<div class="form-check" style="padding-left: 0">\n' +
                     '                                <label class="form-check-label" for="quest3">\n - ' +
                     '                                    '+startedQuestsStory[quest]+': '+description+'\n' +
@@ -224,7 +238,11 @@ function manageEffects(name) {
                 '                    </form>'
 
             setTimeout(function() {
-                newMessage(message, true)
+                if (addedSomethint) {
+                    newMessage(message, true)
+                } else {
+                    newMessage("No quests active", true)
+                }
             }, 1000);
             break
 
@@ -442,8 +460,12 @@ function sendQuestInput(bodyMessage) {
 }
 
 function showKarma(idx) {
+    if (karmaUnlocked.length === undefined) {
+        newMessage("No karma unlocked", true)
+        return
+    }
     const keys = Object.keys(karmaUnlocked)
-    if (karmaUnlocked.length === undefined || idx === karmaUnlocked.length) return
+    if (idx === karmaUnlocked.length) return
     const karma = karmaCards[keys[idx]]
     const message =
         '                    <p>' + karma["name"] + '</p>\n' +
