@@ -78,37 +78,37 @@ const questsPersonal = {
         "reward": ["Sleep-hygiene 50"]
     },
     "Study Tools Lvl1": {
-        "description": "Use 1 tool to help you when you are studying/learning",
+        "description": "Use 1 tool to help you when you are studying/learning, for more help <a href='https://docs.google.com/document/d/1zALcWOoLv0-Fhipzit0AFxl6YwFjNfrbR3T5OMtFe1I/edit?usp=sharing '>CLICK HERE</a>",
         "type": "bool",
         "requiredQuest": "",
         "reward": ["Knowledge 10"]
     },
     "Study Tools Lvl5": {
-        "description": "Use 3 tools to help you when you are studying/learning",
+        "description": "Use 3 tools to help you when you are studying/learning, for more help <a href='https://docs.google.com/document/d/1zALcWOoLv0-Fhipzit0AFxl6YwFjNfrbR3T5OMtFe1I/edit?usp=sharing '>CLICK HERE</a>",
         "type": "bool",
         "requiredQuest": "Study Tools Lvl1",
         "reward": ["Knowledge 25"]
     },
     "Study Tools Lvl10": {
-        "description": "Use 3+ tools to help you when you are studying/learning and practice spaced repetition",
+        "description": "Use 3+ tools to help you when you are studying/learning and practice spaced repetition, for more help <a href='https://docs.google.com/document/d/1zALcWOoLv0-Fhipzit0AFxl6YwFjNfrbR3T5OMtFe1I/edit?usp=sharing '>CLICK HERE</a>",
         "type": "bool",
         "requiredQuest": "Study Tools Lvl5",
         "reward": ["Knowledge 50"]
     },
     "Resource Reflections Lvl1": {
-        "description": "Write reflections you’ve had after reading 1 resource",
+        "description": "Write reflections you’ve had after reading 1 resource, for more help <a href='https://docs.google.com/document/d/1zALcWOoLv0-Fhipzit0AFxl6YwFjNfrbR3T5OMtFe1I/edit?usp=sharing '>CLICK HERE</a>",
         "type": "text",
         "requiredQuest": "",
         "reward": ["Knowledge 10"]
     },
     "Resource Reflections Lvl5": {
-        "description": "Write reflections you’ve had after reading 3 resources",
+        "description": "Write reflections you’ve had after reading 3 resources, for more help <a href='https://docs.google.com/document/d/1zALcWOoLv0-Fhipzit0AFxl6YwFjNfrbR3T5OMtFe1I/edit?usp=sharing '>CLICK HERE</a>",
         "type": "text",
         "requiredQuest": "Resource Reflections Lvl1",
         "reward": ["Knowledge 25"]
     },
     "Resource Reflections Lvl10": {
-        "description": "Write down 5+ things you’ve learnt from resources and how it’s helped you",
+        "description": "Write down 5+ things you’ve learnt from resources and how it’s helped you, for more help <a href='https://docs.google.com/document/d/1zALcWOoLv0-Fhipzit0AFxl6YwFjNfrbR3T5OMtFe1I/edit?usp=sharing '>CLICK HERE</a>",
         "type": "text",
         "requiredQuest": "Resource Reflections Lvl5",
         "reward": ["Knowledge 50"]
@@ -150,37 +150,37 @@ const questsPersonal = {
         "reward": ["Positive-self-image 50"]
     },
     "Identify Negative Emotions Lvl1": {
-        "description": "Can you identify the moments where you feel consistently overwhelmed/frustrated/overcome with negative emotions?",
+        "description": "Can you identify the moments where you feel consistently overwhelmed/frustrated/overcome with negative emotions?, for more help <a href='https://docs.google.com/document/d/1zALcWOoLv0-Fhipzit0AFxl6YwFjNfrbR3T5OMtFe1I/edit?usp=sharing '>CLICK HERE</a>",
         "type": "bool",
         "requiredQuest": "",
         "reward": ["Emotional-regulation 10"]
     },
     "Identify Negative Emotions Lvl5": {
-        "description": "Write down a scenario where you can practice radical acceptance",
+        "description": "Write down a scenario where you can practice radical acceptance, for more help <a href='https://docs.google.com/document/d/1zALcWOoLv0-Fhipzit0AFxl6YwFjNfrbR3T5OMtFe1I/edit?usp=sharing '>CLICK HERE</a>",
         "type": "text",
         "requiredQuest": "Identify Negative Emotions Lvl1",
         "reward": ["Emotional-regulation 25"]
     },
     "Identify Negative Emotions Lvl10": {
-        "description": "Practice radical acceptance at least once a week",
+        "description": "Practice radical acceptance at least once a week, for more help <a href='https://docs.google.com/document/d/1zALcWOoLv0-Fhipzit0AFxl6YwFjNfrbR3T5OMtFe1I/edit?usp=sharing '>CLICK HERE</a>",
         "type": "bool",
         "requiredQuest": "Identify Negative Emotions Lvl5",
         "reward": ["Emotional-regulation 50"]
     },
     "Physical Idle Time Lvl1": {
-        "description": "Do a physical task that allows for mental idle time without a goal for 5 mins",
+        "description": "Do a physical task that allows for mental idle time without a goal for 5 mins, for more help <a href='https://docs.google.com/document/d/1zALcWOoLv0-Fhipzit0AFxl6YwFjNfrbR3T5OMtFe1I/edit?usp=sharing '>CLICK HERE</a>",
         "type": "bool",
         "requiredQuest": "",
         "reward": ["Physical-wellness 10"]
     },
     "Physical Idle Time Lvl5": {
-        "description": "Do a physical task that allows for mental idle time without a goal for 10 mins",
+        "description": "Do a physical task that allows for mental idle time without a goal for 10 mins, for more help <a href='https://docs.google.com/document/d/1zALcWOoLv0-Fhipzit0AFxl6YwFjNfrbR3T5OMtFe1I/edit?usp=sharing '>CLICK HERE</a>",
         "type": "bool",
         "requiredQuest": "Physical Idle Time Lvl1",
         "reward": ["Physical-wellness 25"]
     },
     "Physical Idle Time Lvl10": {
-        "description": "Do a physical task that allows for mental idle time without a goal for 20+ mins",
+        "description": "Do a physical task that allows for mental idle time without a goal for 20+ mins, for more help <a href='https://docs.google.com/document/d/1zALcWOoLv0-Fhipzit0AFxl6YwFjNfrbR3T5OMtFe1I/edit?usp=sharing '>CLICK HERE</a>",
         "type": "bool",
         "requiredQuest": "Physical Idle Time Lvl5",
         "reward": ["Physical-wellness 50"]
@@ -192,19 +192,19 @@ const questsPersonal = {
         "reward": ["Emotional-regulation 10"]
     },
     "Urge Surfing Lvl1": {
-        "description": "Try urge surfing/distress tolerance when you feel a negative emotion for 7 mins",
+        "description": "Try urge surfing/distress tolerance when you feel a negative emotion for 7 mins, for more help <a href='https://docs.google.com/document/d/1zALcWOoLv0-Fhipzit0AFxl6YwFjNfrbR3T5OMtFe1I/edit?usp=sharing '>CLICK HERE</a>",
         "type": "bool",
         "requiredQuest": "",
         "reward": ["Emotional-regulation 10"]
     },
     "Urge Surfing Lvl5": {
-        "description": "Try urge surfing/distress tolerance when you feel a negative emotion for 15 mins",
+        "description": "Try urge surfing/distress tolerance when you feel a negative emotion for 15 mins, for more help <a href='https://docs.google.com/document/d/1zALcWOoLv0-Fhipzit0AFxl6YwFjNfrbR3T5OMtFe1I/edit?usp=sharing '>CLICK HERE</a>",
         "type": "bool",
         "requiredQuest": "Urge Surfing Lvl1",
         "reward": ["Emotional-regulation 25"]
     },
     "Urge Surfing Lvl10": {
-        "description": "Try urge surfing/distress tolerance when you feel a negative emotion for 15 mins and do STOP (impulse control)",
+        "description": "Try urge surfing/distress tolerance when you feel a negative emotion for 15 mins and do STOP (impulse control), for more help <a href='https://docs.google.com/document/d/1zALcWOoLv0-Fhipzit0AFxl6YwFjNfrbR3T5OMtFe1I/edit?usp=sharing '>CLICK HERE</a>",
         "type": "bool",
         "requiredQuest": "Urge Surfing Lvl5",
         "reward": ["Emotional-regulation 50"]
