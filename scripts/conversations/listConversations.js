@@ -75,6 +75,98 @@ const conversations = {
         }
     },
 
+    "Mani-Jewel-End": {
+        "name": "Mani Jewel",
+        "description": "Mani Jewel needs your help",
+        "icon": "techale.png",
+        "messages": {
+            "firstMessage": {
+                "response": "Ehy! Found anything?",
+                "options": ["Hey Ms. Jewel, yes, I've done some digging."],
+                "effect": "None"
+            },
+            "Hey Ms. Jewel, yes, I've done some digging.": {
+                "response": "Oh, what a relief! This whole thing with the Wolves Corporation... it’s consumed me.",
+                "options": ["How so?"],
+                "effect": ""
+            },
+            "How so?": {
+                "response": "Where to begin... I can’t sleep, I can’t focus on my studies. I’m constantly checking my phone, and scrolling through news and updates, and it never stops. I feel like I’m spiraling like I’m missing something important if I stop, but the more I read, the more lost I feel. It’s like I’m stuck in this endless loop, and I don’t know how to get out...",
+                "options": ["Boy does that sound overwhelming! I'm no expert, but after chatting with HopDay, I can tell you this: sometimes, stepping away from the source of your stress can give you a new perspective."],
+                "effect": ""
+            },
+            "Boy does that sound overwhelming! I'm no expert, but after chatting with HopDay, I can tell you this: sometimes, stepping away from the source of your stress can give you a new perspective.": {
+                "response": "What do you mean?",
+                "options": ["Try spending some time away from screens. Even a short break can help clear your mind. Establishing a routine can also make a big difference. Set specific times for checking the news, and stick to those times. And be mindful of where you do it-choose a spot that's separate from where you relax or sleep."],
+                "effect": ""
+            },
+            "Try spending some time away from screens. Even a short break can help clear your mind. Establishing a routine can also make a big difference. Set specific times for checking the news, and stick to those times. And be mindful of where you do it-choose a spot that's separate from where you relax or sleep.": {
+                "response": "That sounds... manageable. If HopDay did it, I guess I could try some small steps. A walk does sound nice...",
+                "options": ["If you say so:) It's good to be aware of how you're feeling when you're scrolling. Sometimes seemingly helpful information just adds to your anxiety. It's okay to ask for help. You don't have to go through this alone."],
+                "effect": ""
+            },
+            "If you say so:) It's good to be aware of how you're feeling when you're scrolling. Sometimes seemingly helpful information just adds to your anxiety. It's okay to ask for help. You don't have to go through this alone.": {
+                "response": "You’re right. I need to find a way to manage this better. Maybe I’ll start with a morning walk in the park. That sounds... peaceful. Unlike looking at ominous video files all day!",
+                "options": ["Speaking of files, I have something for you. Catective sends 'WOLVES CO DIRT' pdf. She addressed most of it during her stream, but some of it has not yet been released. I will continue my search for more information."],
+                "effect": ""
+            },
+            "Speaking of files, I have something for you. Catective sends 'WOLVES CO DIRT' pdf. She addressed most of it during her stream, but some of it has not yet been released. I will continue my search for more information.": {
+                "response": "That’s just grand, detective! However... I don’t think I will be needing your services anymore. Except maybe for just one favor...",
+                "options": ["What is it?"],
+                "effect": ""
+            },
+            "What is it?": {
+                "response": "Could you forward me a link to Guy’s Locks? I think I’m ready to install a door.",
+                "options": ["Of course."],
+                "effect": "success-Mani5"
+            }
+        }
+    },
+
+    "Goldie-Mani-Quest-2": {
+        "name": "Goldie",
+        "description": "Goldie may help you with Mani",
+        "icon": "techale.png",
+        "messages": {
+            "firstMessage": {
+                "response": "Oh ehy, found anything?",
+                "options": ["I got something for ya."],
+                "effect": "None"
+            },
+            "I got something for ya.": {
+                "response": "<b>Receives fake link to the conversation with HopDay</b><br>Oh no way, dude!!! You’ve done it! ... I see, so that’s why she rebranded.",
+                "options": ["Still want to make viral shorts?"],
+                "effect": ""
+            },
+            "Still want to make viral shorts?": {
+                "response": "Nah. I like my squirrel videos and that’s all that matters. I don’t wanna get into no anger-baiting stuff to get people to pay attention to my work... I know it’s good and that’s all that matters;) You think it’s good tho, right?",
+                "options": ["It's fantastic, best thing since sliced tuna!", "I thought other people's opinions didn't matter to you anymore;)"],
+                "effect": ""
+            },
+            "It's fantastic, best thing since sliced tuna!": {
+                "response": "Aw sharks, detective, you don’t have to be THAT charming!",
+                "options": ["I thought other people's opinions didn't matter to you anymore;)"],
+                "effect": ""
+            },
+            "I thought other people's opinions didn't matter to you anymore;)": {
+                "response": "Oh, come on! You can give your best boy some praise every once\n" +
+                    "ina while, can’t ya?",
+                "options": ["I surely don't have to, but I might ;)"],
+                "effect": ""
+            },
+            "I surely don't have to, but I might ;)" : {
+                "response": ">:/",
+                "options": ["I'll talk to you later, pal."],
+                "effect": ""
+            },
+            "I'll talk to you later, pal.": {
+                "response": "Later, detective!",
+                "options": [],
+                "effect": "success-Mani4",
+            }
+        }
+    },
+
     "TubeYuber-Mani-Quest": {
         "name": "TubeYuber",
         "description": "TubeYuber always stream at 14:00pm",

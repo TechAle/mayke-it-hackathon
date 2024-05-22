@@ -16,6 +16,18 @@ const questStory = {
         "requiredQuest": "Mani2",
         "reward": [""],
         "conversation": "TubeYuber-Mani-Quest"
+    },
+    "Mani4": {
+        "description": "Report back to Goldie what you discovered",
+        "requiredQuest": "Mani3",
+        "reward": [""],
+        "conversation": "Goldie-Mani-Quest-2"
+    },
+    "Mani5": {
+        "description": "Give the advices to Mani Jewel",
+        "requiredQuest": "Mani4",
+        "reward": [""],
+        "conversation": "Mani-Jewel-End"
     }
 }
 
