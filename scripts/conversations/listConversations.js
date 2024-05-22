@@ -71,7 +71,7 @@ const conversations = {
                 "response": "Here are your karma cards:",
                 "options": ["Check stats", "Check new quests improvement", "Check current quests improvement", "Check new quests story", "Check current quests story"],
                 "effect": "Print karma cards"
-            }
+            },
         }
     },
 

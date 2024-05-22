@@ -5,10 +5,14 @@ loadHistoryFromCookies()
 function loadHistoryFromCookies() {
 
     if (getCookie("history")) {
-        history = JSON.parse(getCookie("history"))
+        if (getCookie("history") !== "-1") {
+            history = JSON.parse(getCookie("history"))
+        }
     }
     if (getCookie("options")) {
-        optionsHistory = JSON.parse(getCookie("options"))
+        if (getCookie("options") !== "-1") {
+            optionsHistory = JSON.parse(getCookie("options"))
+        }
     }
 
     for(let conv in conversations) {

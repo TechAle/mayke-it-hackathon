@@ -31,5 +31,10 @@ function deleteAllCookiesAndRefresh() {
         document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain=" + window.location.hostname;
     }
 
-    location.reload(); // Refresh the page
+    // wait 1 second
+    setTimeout(function() {
+        setCookie("history", "-1")
+        setCookie("options", "-1")
+        location.reload(); // Refresh the page
+    }, 1000);
 }

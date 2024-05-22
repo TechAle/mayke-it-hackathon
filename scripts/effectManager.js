@@ -443,7 +443,7 @@ function sendQuestInput(bodyMessage) {
 
 function showKarma(idx) {
     const keys = Object.keys(karmaUnlocked)
-    if (idx === karmaUnlocked.length) return
+    if (karmaUnlocked.length === undefined || idx === karmaUnlocked.length) return
     const karma = karmaCards[keys[idx]]
     const message =
         '                    <p>' + karma["name"] + '</p>\n' +
