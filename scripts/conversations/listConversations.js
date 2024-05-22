@@ -75,6 +75,75 @@ const conversations = {
         }
     },
 
+    "TubeYuber-Mani-Quest": {
+        "name": "TubeYuber",
+        "description": "TubeYuber always stream at 14:00pm",
+        "icon": "techale.png",
+        "messages": {
+            "firstMessage": {
+                "response": "Hello, i'm TubeYuber! Do you need any help?",
+                "options": ["I would love to connect and ask for some advice :)"],
+                "effect": "None"
+            },
+            "I would love to connect and ask for some advice :)": {
+                "response": "Oh, cutie pie! Well, first I gotta say, that your videos are adorableeee! We should like totally collab<3 I am going live in a few, so shoot your shot fast, babe~",
+                "options": ["any tips for getting people hooked on my shorts?", "Heard about WolvesCo?", "I am a detective undercover"],
+                "effect": ""
+            },
+            "I'm a detective undercover": {
+                "response": "Haha, aren’t we all~~~",
+                "options": ["any tips for getting people hooked on my shorts?", "Heard about WolvesCo?"],
+                "effect": ""
+            },
+            "any tips for getting people hooked on my shorts?": {
+                "response": "Hmm... Well.. there is one sure way to get you going, but I don’t do\n" +
+                    "that kinda stuff any more, hon. It was hard to get a new start, but I\n" +
+                    "managed to rebrand.",
+                "options": ["I heard! Why the sudden change?", "Heard about WolvesCo?"],
+            },
+            "I heard! Why the sudden change?": {
+                "response": "You know... Being “HopDie” was very profitable. People get hooked on\n" +
+                    "negative content easily, they feel like being informed will somehow benefit them. It’s true to an extent... But then... It affected me. Each time I did the research for my videos, I just felt horrible, paranoid even. Now, as HopDAY, I can do something less... Morbid... I lost a lot",
+                "options": ["How did you manage to rebound so quickly?", "Heard about WolvesCo?"],
+                "effect": ""
+            },
+            "How did you manage to rebound so quickly?": {
+                "response": "I stepped away from my screen and took a break. Sounds easy, but I\n" +
+                    "went all in! I even set a specific time that I could check the news! It was difficult, but small steps get you places too. I like my new routine much better now~ I feel more aware, especially after taking my research out of the bedroom, and into one designated corner. That was probably the best thing I’ve done for myself!",
+                "options": ["I will keep that in mind :) Thanks a lot!", "Heard about WolvesCo?"],
+                "effect": ""
+            },
+            "Heard about WolvesCo?": {
+                "response": "Of course! I worked so hard digging up dirt on them. Have you seen\n" +
+                    "my old shorts? Gosh, actually, don’t even bother. Those videos will make anyone paranoid. Looking back, they were not productive after all... I changed strategies~ They won’t see what hit ‘em!",
+                "options": ["What's gonna hit 'em?", "any tips for getting people hooked on my shorts?"],
+                "effect": ""
+            },
+            "What's gonna hit 'em?": {
+                "response": "A $10,000 suit that’s what! It’s not much in the grander scheme of\n" +
+                    "things, but it sure is a start. They won’t be so frivolous after my team is done with them, that’s for sure, but it won’t be enough to stop them...",
+                "options": ["What do you think they're up to?"],
+                "effect": ""
+            },
+            "What do you think they're up to?": {
+                "response": "Oh honey, I KNOW what they are up to. I combined all the receipts, here take a look: “WOLVES CO DIRT”<br><b>HopDay sends a fake pdf file</b>",
+                "options": ["Thanks for these informations!",  "any tips for getting people hooked on my shorts?"],
+            },
+            "Thanks for these informations!": {
+                "response": "This? That is public knowledge~ Or at least it will be when I go live,\n" +
+                    "teehee~ I have more if you’re interested in joining my little spy\n" +
+                    "family^^",
+                "options": ["any tips for getting people hooked on my shorts?"],
+                "effect": ""
+            },
+            "I will keep that in mind :) Thanks a lot!": {
+                "response": "Well, toodles, darling! It’s time to go live~~",
+                "options": [],
+                "effect": "success-Mani3"
+            }
+        }
+    },
+
     "Goldie-Mani-Quest": {
         "name": "Goldie",
         "description": "Goldie may help you with Mani",
