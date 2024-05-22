@@ -421,12 +421,13 @@ function manageEffects(name) {
                     setTimeout(function() {
                         if (levelUp) {
                             newMessage("Level up! " + skill + " is now level " + skills[skill]["lvl"], true)
-                            if (skills[skill]["lvl"] >= 7 && karmaCards[skill] !== undefined && karmaUnlocked[karmaCards[skill]] === undefined) {
+                            let skillKarma = skill.replace("-", "_")
+                            if (skills[skill]["lvl"] >= 7 && karmaCards[skillKarma] !== undefined && karmaUnlocked[karmaCards[skillKarma]] === undefined) {
                                 setTimeout(function() {
-                                    newMessage("You have unlocked a new karma card! " + karmaCards[skill]["name"], true)
-                                    manageEffects("giveKarma-" + karmaCards[skill]["name"])
+                                    newMessage("You have unlocked a new karma card! " + karmaCards[skillKarma]["name"], true)
+                                    manageEffects("giveKarma-" + karmaCards[skillKarma]["name"])
                                     setTimeout(function() {
-                                        newMessage('<img src="images/conversation/' + karmaCards[skill]["icon"] + '" alt="Description of image"/>', true)
+                                        newMessage('<img src="images/conversation/' + karmaCards[skillKarma]["icon"] + '" alt="Description of image"/>', true)
                                     }, 800);
                                 }, 800);
                             }

@@ -1,16 +1,16 @@
 const karmaCards = {
     "Awareness": {
-        "name": "awareness",
+        "name": "Awareness",
         "description": "Karma for awareness",
         "icon": "awareness.png",
     },
-    "Emotional-awareness": {
-        "name": "Emotional-awareness",
+    "Emotional_awareness": {
+        "name": "Emotional_awareness",
         "description": "Karma for emotional awareness",
         "icon": "emotionalAwareness.png",
     },
-    "Emotional-regulation": {
-        "name": "Emotional-regulation",
+    "Emotional_regulation": {
+        "name": "Emotional_regulation",
         "description": "Karma for emotional regulation",
         "icon": "emotionalRegulation.png",
     },
@@ -29,18 +29,18 @@ const karmaCards = {
         "description": "Karma for meditation",
         "icon": "meditation.png",
     },
-    "Physical-wellness": {
-        "name": "Physical-wellness",
+    "Physical_wellness": {
+        "name": "Physical_wellness",
         "description": "Karma for physical awareness",
         "icon": "physicalAwareness.png",
     },
-    "Positive-self-image": {
-        "name": "Positive-self-image",
+    "Positive_self_image": {
+        "name": "Positive_self_image",
         "description": "Karma for positive self image",
         "icon": "positiveSelfImage.png",
     },
-    "Sleep-hygiene": {
-        "name": "Sleep-hygiene",
+    "Sleep_hygiene": {
+        "name": "Sleep_hygiene",
         "description": "Karma for sleep hygiene",
         "icon": "sleepHygiene.png",
     },
