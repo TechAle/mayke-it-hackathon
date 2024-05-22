@@ -78,7 +78,7 @@ const conversations = {
     "Mani-Jewel-End": {
         "name": "Mani Jewel",
         "description": "Mani Jewel needs your help",
-        "icon": "techale.png",
+        "icon": "pfp3.png",
         "messages": {
             "firstMessage": {
                 "response": "Ehy! Found anything?",
@@ -126,7 +126,7 @@ const conversations = {
     "Goldie-Mani-Quest-2": {
         "name": "Goldie",
         "description": "Goldie may help you with Mani",
-        "icon": "techale.png",
+        "icon": "pfp1.png",
         "messages": {
             "firstMessage": {
                 "response": "Oh ehy, found anything?",
@@ -170,7 +170,7 @@ const conversations = {
     "TubeYuber-Mani-Quest": {
         "name": "TubeYuber",
         "description": "TubeYuber always stream at 14:00pm",
-        "icon": "techale.png",
+        "icon": "pfp2.png",
         "messages": {
             "firstMessage": {
                 "response": "Hello, i'm TubeYuber! Do you need any help?",
@@ -237,7 +237,7 @@ const conversations = {
     },
 
     "Goldie-Mani-Quest": {
-        "name": "Goldie",
+        "name": "pfp1",
         "description": "Goldie may help you with Mani",
         "icon": "techale.png",
         "messages": {
@@ -347,7 +347,7 @@ const conversations = {
     "Mani-Jewel-Start" : {
         "name": "Mani Jewel",
         "description": "Mani Jewel needs your help",
-        "icon": "techale.png",
+        "icon": "pfp3.png",
         "messages": {
             "firstMessage": {
                 "response": "Hello Catective <br>My name is Mani Jewel. I’m a junior at Gnomes Borough College. Detective, I need your help. I’ve been scrolling through all this news about the Wolves Corporation—they’re out to get me, I just know it. The more I read, the more I feel I’m missing something important. I need to know everything they’re up to, but it’s overwhelming. Can you help me find out what’s really going on?",
@@ -449,7 +449,7 @@ const conversations = {
     "Tutorial" : {
         "name": "Goldie",
         "description": "A tutorial",
-        "icon": "techale.png",
+        "icon": "pfp1.png",
         "messages": {
             "firstMessage": {
                 "response": "Hello, Detective. This is G from HR, I am texting to assess your move-in status and ask you a few questions regarding your stats.",
