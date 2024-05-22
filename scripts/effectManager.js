@@ -193,6 +193,11 @@ function manageEffects(name) {
 
             break
 
+        case "unlockDiary":
+            setCookie("tutorial", "done")
+            $("#diary").css("display", "initial")
+            break
+
         case "Print current quests story":
             message = ""
             before = false
@@ -376,13 +381,16 @@ function manageEffects(name) {
                     const skill = name.split(" ")[0]
                     const xp = parseInt(name.split(" ")[1])
                     skills[skill]["xp"] += xp
-                    if (skills[skill]["xp"] >= 100) {
+                    let levelUp = false
+                    while (skills[skill]["xp"] >= 100) {
                         skills[skill]["xp"] -= 100
                         skills[skill]["lvl"] += 1
-                        setTimeout(function() {
-                            newMessage("Level up! " + skill + " is now level " + skills[skill]["lvl"], true)
-                        }, 800);
+                        levelUp = true
                     }
+
+                    setTimeout(function() {
+                        newMessage("Level up! " + skill + " is now level " + skills[skill]["lvl"], true)
+                    }, 800);
                     setCookie("skills", JSON.stringify(skills))
                 }
             }  else

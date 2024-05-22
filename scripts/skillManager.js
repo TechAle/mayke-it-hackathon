@@ -3,6 +3,10 @@ let skills = {
         "lvl": 0,
         "xp": 0
     },
+    "Physical-awareness": {
+        "lvl": 0,
+        "xp": 0
+    },
     "Sleep-hygiene": {
         "lvl": 0,
         "xp": 0
@@ -38,8 +42,14 @@ let skills = {
 }
 
 function loadSkillsFromCookies() {
+    let backupSkills = skills
     if (getCookie("skills")) {
         skills = JSON.parse(getCookie("skills"))
+        for(let skill in backupSkills) {
+            if (!skills[skill]) {
+                skills[skill] = backupSkills[skill]
+            }
+        }
     }
 }
 
