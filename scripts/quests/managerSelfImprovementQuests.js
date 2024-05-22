@@ -114,19 +114,19 @@ const questsPersonal = {
         "reward": ["Knowledge 50"]
     },
     "Positive Journaling Lvl1": {
-        "description": "Journal using 1 prompt that cultivates a positive self image for 5 mins",
+        "description": "Journal using 1 prompt that cultivates a positive self image for 5 mins, For help on what to write: <a href='https://docs.google.com/document/d/1thhoFvxXaqQ4PLGprhFAOIQgSpIaxB_u4zQZsPiuWSE/edit?usp=sharing'>CLICK HERE</a>",
         "type": "text",
         "requiredQuest": "",
         "reward": ["Positive-self-image 10", "Journaling 25"]
     },
     "Positive Journaling Lvl5": {
-        "description": "Journal using 2 prompts that cultivate a positive self image for 5 mins each",
+        "description": "Journal using 2 prompts that cultivate a positive self image for 5 mins each, For help on what to write: <a href='https://docs.google.com/document/d/1thhoFvxXaqQ4PLGprhFAOIQgSpIaxB_u4zQZsPiuWSE/edit?usp=sharing'>CLICK HERE</a>",
         "type": "text",
         "requiredQuest": "Positive Journaling Lvl1",
         "reward": ["Positive-self-image 25", "Journaling 50"]
     },
     "Positive Journaling Lvl10": {
-        "description": "Journal using 2+ prompts that cultivate a positive self image for 20+ mins in total",
+        "description": "Journal using 2+ prompts that cultivate a positive self image for 20+ mins in total, For help on what to write: <a href='https://docs.google.com/document/d/1thhoFvxXaqQ4PLGprhFAOIQgSpIaxB_u4zQZsPiuWSE/edit?usp=sharing'>CLICK HERE</a>",
         "type": "text",
         "requiredQuest": "Positive Journaling Lvl5",
         "reward": ["Positive-self-image 50", "Journaling 75"]
@@ -281,7 +281,6 @@ const questsPersonal = {
         "requiredQuest": "Bad Habit Analysis Lvl5",
         "reward": ["Awareness 50"]
     },
-
 
 }
 let startedQuestsPersonal = []
